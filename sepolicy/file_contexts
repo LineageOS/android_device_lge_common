@@ -1,5 +1,2 @@
 # WiFi/Bluetooth MAC addresses
 /system/bin/hwaddrs         u:object_r:hwaddrs_exec:s0
-
-# Bluetooth
-/data/misc/bdaddr           u:object_r:bluetooth_data_file:s0
