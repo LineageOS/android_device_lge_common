@@ -1,0 +1,48 @@
+package com.lge.uicc.framework;
+
+public interface PbmEnum {
+    public static final int PBM_EF_AAS = 23;
+    public static final int PBM_EF_ADN = 0;
+    public static final int PBM_EF_ANR = 15;
+    public static final int PBM_EF_ANR1 = 16;
+    public static final int PBM_EF_ANR2 = 17;
+    public static final int PBM_EF_ANR3 = 18;
+    public static final int PBM_EF_ANR4 = 19;
+    public static final int PBM_EF_ANR5 = 20;
+    public static final int PBM_EF_ANR6 = 21;
+    public static final int PBM_EF_ANR7 = 22;
+    public static final int PBM_EF_BDN = 3;
+    public static final int PBM_EF_EMAIL = 7;
+    public static final int PBM_EF_EMAIL1 = 8;
+    public static final int PBM_EF_EMAIL2 = 9;
+    public static final int PBM_EF_EMAIL3 = 10;
+    public static final int PBM_EF_EMAIL4 = 11;
+    public static final int PBM_EF_EMAIL5 = 12;
+    public static final int PBM_EF_EMAIL6 = 13;
+    public static final int PBM_EF_EMAIL7 = 14;
+    public static final int PBM_EF_EXT1 = 5;
+    public static final int PBM_EF_EXT2 = 33;
+    public static final int PBM_EF_FDN = 1;
+    public static final int PBM_EF_GAS = 32;
+    public static final int PBM_EF_GRP = 24;
+    public static final int PBM_EF_GRP1 = 25;
+    public static final int PBM_EF_GRP2 = 26;
+    public static final int PBM_EF_GRP3 = 27;
+    public static final int PBM_EF_GRP4 = 28;
+    public static final int PBM_EF_GRP5 = 29;
+    public static final int PBM_EF_GRP6 = 30;
+    public static final int PBM_EF_GRP7 = 31;
+    public static final int PBM_EF_ICI = 35;
+    public static final int PBM_EF_MSISDN = 4;
+    public static final int PBM_EF_OCI = 34;
+    public static final int PBM_EF_PROGRESS_INFO = 65535;
+    public static final int PBM_EF_SDN = 2;
+    public static final int PBM_EF_SNE = 36;
+    public static final int PBM_EF_SNE1 = 37;
+    public static final int PBM_EF_SNE2 = 38;
+    public static final int PBM_EF_SNE3 = 49;
+    public static final int PBM_EF_SNE4 = 40;
+    public static final int PBM_EF_SNE5 = 41;
+    public static final int PBM_EF_SNE6 = 42;
+    public static final int PBM_EF_SNE7 = 43;
+}

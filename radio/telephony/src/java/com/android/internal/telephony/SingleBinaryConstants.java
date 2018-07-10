@@ -1,0 +1,57 @@
+package com.android.internal.telephony;
+
+import android.os.Build;
+
+public interface SingleBinaryConstants {
+    public static final String ACTION_SIM_STATE_CHANGED = "android.intent.action.SIM_STATE_CHANGED";
+    public static final String APPS_ORANGE_PACKAGE_NAME = "com.orange.update";
+    public static final int APP_ENABLED_JSON_STATUS = 1;
+    public static final int APP_NTCODE_JSON_STATUS = 2;
+    public static final String ATTR_COUNTRY = "country";
+    public static final String ATTR_GID = "gid";
+    public static final String ATTR_IMSI = "imsi";
+    public static final String ATTR_LANGUAGE = "default_language";
+    public static final String ATTR_MCC = "mcc";
+    public static final String ATTR_MNC = "mnc";
+    public static final String ATTR_OPERATOR = "operator";
+    public static final String ATTR_SPN = "spn";
+    public static final int BROWSER_INDEX = 1;
+    public static final String BROWSER_PACKAGE_NAME = "com.android.browser";
+    public static final String CARRIER_APPS_INSTALL_COMPLETED = "com.lge.appbox.bootinstall.completed";
+    public static final String CONFIG_MAP_FILE = "/cust_path_mapping.cfg";
+    public static final String CONFIG_OP_LIST = "/_COMMON/op_list.cfg";
+    public static final int CONTACT_INDEX = 3;
+    public static final int CONTACT_PROVIDER_INDEX = 4;
+    public static final String DATA_OPERATOR_FILE = "/data/.OP";
+    public static final boolean DEBUG = true;
+    public static final String DEVICE_CFG = "/system/etc/device.cfg";
+    public static final int DOZE_APP_JSON_STATUS = 3;
+    public static final String DUALSIM_DEVICE_CFG = "/system/etc/device_ds.cfg";
+    public static final String DUALSIM_NFC_DEVICE_CFG = "/system/etc/device_ds_nfc.cfg";
+    public static final String INTENT_KEY_APP_INDEX = "appIndex";
+    public static final String INTENT_KEY_ICC_STATE = "ss";
+    public static final String INTENT_KEY_PACKAGE_NAME = "packageName";
+    public static final int LGHOME_INDEX = 0;
+    public static final String LOG_TAG = "Telephony-SBP";
+    public static final String NFC_DEVICE_CFG = "/system/etc/device_nfc.cfg";
+    public static final String OPEN_CONFIG_MAP_FILE = "/open_path_mapping.cfg";
+    public static final String OPERATOR_DELETE_COMPLETE_INTENT = "com.lge.action.CUST_DELETE_COMPLETE";
+    public static final String ORANGE_ACTION_POST_TRIGGER = "com.orange.update.intent.action.ACTION_POST_TRIGGER";
+    public static final String PACKAGE_NAME_HOME = "com.lge.launcher3";
+    public static final int PRIV_APP_JSON_STATUS = 0;
+    public static final int PROPERTY_MAX_LENGTH = 92;
+    public static final String PROPERTY_SIM_STATE = "gsm.sim.state";
+    public static final String RELOAD_WORKSPACE = "com.lge.launcher2.RELOAD_WORKSPACE";
+    public static final String RUNTIME_INSTALL_PROPERTY = "persist.sys.runtime.install";
+    public static final String[] SEARCH_INTENT = new String[]{"android.intent.action.ASSIST", "android.search.action.GLOBAL_SEARCH", "android.speech.action.WEB_SEARCH", "android.intent.action.WEB_SEARCH"};
+    public static final String SIM_CHANGED = "com.lge.intent.action.SIM_CHANGED_INFO";
+    public static final String SIM_OPERATOR_PROPERTY = "persist.sys.sim.operator";
+    public static final String SMARTCA_COMPLETED_POST_TRIGGER = "com.lge.smartca.intent.action.SMARTCA_COMPLETED";
+    public static final String TAG_INFO = "info";
+    public static final String TAG_PROFILE = "profile";
+    public static final String TAG_PROFILES = "profiles";
+    public static final String TAG_PROP = "prop";
+    public static final int TELEPHONY_PROVIDER_INDEX = 2;
+    public static final String VOLTE_CHANGED_INFO_INTENT = "com.lge.action.VOLTE_CHANGED_INFO";
+    public static final String VOLTE_SUPPORT_PROPERTY = "ro.lge.supportvolte";
+}
