@@ -1,5 +1,5 @@
 # Copyright (C) 2011-2015 The CyanogenMod project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := getmac.c
+
+LOCAL_SHARED_LIBRARIES := libcutils
 
 LOCAL_PRELINK_MODULE := false
 
