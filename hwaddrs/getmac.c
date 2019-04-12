@@ -42,11 +42,13 @@ struct misc_entry {
 
 
 // Validates the contents of the given file
-int checkAddr(const char *const filepath, const char *const prefix)
+int checkAddr(const char *const filepath, const char *const prefix,
+const unsigned mode)
 {
 	int notallzeroes=0;
 	char charbuf[20]; /* needs to be more than 18 characters */
 	int i;
+	struct stat stat;
 	int checkfd=open(filepath, O_RDONLY);
 
 	if(checkfd<0) { // doesn't exist/error
@@ -55,6 +57,9 @@ int checkAddr(const char *const filepath, const char *const prefix)
 		ALOGI("File \"%s\" doesn't exist", filepath);
 		return 0;
 	}
+
+	if(lstat(filepath, &stat)<0||!S_ISREG(stat.st_mode)) goto corrupt;
+	if(mode!=(stat.st_mode&mode)) goto corrupt;
 
 	if(prefix) {
 		if(strlen(prefix)>sizeof(charbuf)) {
@@ -269,8 +274,8 @@ strerror(errno));
 
 void handlemac(const struct misc_entry *const entry)
 {
-	if(!checkAddr(entry->datamiscname, entry->prefix)) {
-		if(!checkAddr(entry->persistname, entry->prefix))
+	if(!checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH)) {
+		if(!checkAddr(entry->persistname, entry->prefix, 0))
 			writeAddr(entry);
 		copyAddr(entry->persistname, entry->datamiscname);
 	}
