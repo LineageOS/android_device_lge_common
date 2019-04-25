@@ -37,30 +37,45 @@ static const char LOG_TAG[]="hwaddrs";
 // Validates the contents of the given file
 int checkAddr(char *filepath, int key)
 {
+	int notallzeroes=0;
 	char charbuf[17];
-	int i, notallzeroes=0, ret=0;
+	int i;
 	int checkfd=open(filepath, O_RDONLY);
 
-	if(checkfd<0) return 0; // doesn't exist/error
+	if(checkfd<0) { // doesn't exist/error
+		if(errno!=ENOENT) goto corrupt;
 
-	do {
-		if(key==1) {
-			if(read(checkfd, charbuf, 14)!=14) break;
-			if(strncmp(charbuf, "cur_etheraddr=", 14)!=0) break;
-		}
+		ALOGI("File \"%s\" doesn't exist", filepath);
+		return 0;
+	}
 
-		if(read(checkfd, charbuf, 17)!=17) break;
-		for(i=0; i<17; i++) {
-			if(i%3!=2) {
-				if(!isxdigit(charbuf[i])) break;
-				if(charbuf[i]!='0') notallzeroes=1;
-			} else if(charbuf[i]!=':') break;
-		}
-		ret=notallzeroes;
-	} while(0);
+	if(key==1) {
+		if(read(checkfd, charbuf, 14)!=14) goto corrupt;
+		if(strncmp(charbuf, "cur_etheraddr=", 14)!=0) goto corrupt;
+	}
+
+	if(read(checkfd, charbuf, 17)!=17) goto corrupt;
+	for(i=0; i<17; i++) {
+		if(i%3!=2) {
+			if(!isxdigit(charbuf[i])) goto corrupt;
+			notallzeroes|=charbuf[i]-'0';
+		} else if(charbuf[i]!=':') goto corrupt;
+	}
+
+	if(!notallzeroes) goto corrupt;
+
+	ALOGI("File \"%s\" validated", filepath);
 
 	close(checkfd);
-	return ret;
+
+	return 1;
+
+corrupt:
+	ALOGI("File \"%s\" is corrupt", filepath);
+
+	if(checkfd>=0) close(checkfd);
+
+	return 0;
 }
 
 
@@ -73,15 +88,21 @@ void writeAddr(char *filepath, int offset, int key)
 	unsigned int i, macnums=0;
 	int miscfd=open("/dev/block/bootdevice/by-name/misc", O_RDONLY);
 	int writefd=-1;
+	const char *errmsg=NULL;
 
-	lseek(miscfd, offset, SEEK_SET);
+	if(miscfd<0) errmsg="open";
+	else if(pread(miscfd, macbytes, sizeof(macbytes), offset)!=
+sizeof(macbytes)) errmsg="pread";
+	else for(i=0; i<sizeof(macbytes); ++i) macnums|=macbytes[i];
 
-	for(i=0; i<6; i++) {
-		read(miscfd, &macbytes[i], 1);
-		macnums|=macbytes[i];
-	}
+	if(errmsg) ALOGE("%s() of misc failed: %s", errmsg, strerror(errno));
 
+	/* close()ing if open() failed is suboptimal, but harmless */
 	close(miscfd);
+	miscfd=-1;
+
+	ALOGI("Using %s for \"%s\"", macnums?"data from misc":"random data",
+filepath);
 
 	if(macnums==0) {
 		char product_name[PROPERTY_VALUE_MAX];
@@ -103,47 +124,110 @@ void writeAddr(char *filepath, int offset, int key)
 	}
 
 	if(unlink(filepath)<0&&errno!=ENOENT) {
-		ALOGE("unlink() of \"%s\" failed: %s", filepath,
-strerror(errno));
-		return;
+		errmsg="unlink() of \"%s\" failed: %s";
+		goto abort;
 	}
 	if((writefd=open(filepath, O_WRONLY|O_CREAT|O_EXCL, S_IRUSR))<0) {
-		ALOGE("open() of \"%s\" failed: %s", filepath, strerror(errno));
-		return;
+		errmsg="open() of \"%s\" failed: %s";
+		goto abort;
 	}
 
-	if(key==1) write(writefd, "cur_etheraddr=", 14);
+	if(key==1&&write(writefd, "cur_etheraddr=", 14)!=14) {
+		errmsg="write() of \"%s\" failed: %s";
+		goto abort;
+	}
 	snprintf(macbuf, sizeof(macbuf), "%02x:%02x:%02x:%02x:%02x:%02x\n",
 macbytes[0], macbytes[1], macbytes[2], macbytes[3], macbytes[4], macbytes[5]);
-	write(writefd, &macbuf, 18);
-	close(writefd);
+	if(write(writefd, &macbuf, 18)!=18) {
+		errmsg="write() of \"%s\" failed: %s";
+		goto abort;
+	}
+	if(close(writefd)<0) {
+		errmsg="close() of \"%s\" failed: %s";
+		goto abort;
+	}
+	return;
+
+abort:
+	ALOGE(errmsg, filepath, strerror(errno));
+
+	if(miscfd>=0) close(miscfd);
+	if(writefd>=0) {
+		ALOGI("Removing failed \"%s\" file", filepath);
+		/* unlink() first so file contents may never exit FS journal */
+		if(unlink(filepath)<0) ALOGE("unlink() failed: %s",
+strerror(errno));
+		close(writefd);
+	}
 }
 
 
 // Simple file copy
 void copyAddr(char *source, char *dest)
 {
-	char buffer;
+	char buffer[128];
+	ssize_t bufcnt;
 	int sourcefd=open(source, O_RDONLY);
 	int destfd=-1;
+	const char *errmsg;
 
-	if(sourcefd<0) return; // doesn't exist/error
+#define ERRMSG(call, file) #call "() of \"" file##NAME "\" failed: " file##ERROR
+#define sourceNAME "%3$s"
+#define sourceERROR "%2$s"
+#define destNAME "%s"
+#define destERROR "%s"
+
+	if(sourcefd<0) { // doesn't exist/error
+		errmsg=ERRMSG(open, source);
+		goto abort;
+	}
 
 	if(unlink(dest)<0&&errno!=ENOENT) {
-		ALOGE("unlink() of \"%s\" failed: %s", dest, strerror(errno));
-		return;
+		errmsg=ERRMSG(unlink, dest);
+		goto abort;
 	}
 	if((destfd=open(dest, O_WRONLY|O_CREAT|O_EXCL, S_IRUSR|S_IRGRP|S_IROTH))<0) {
-		ALOGE("open() of \"%s\" failed: %s", dest, strerror(errno));
-		return;
+		errmsg=ERRMSG(open, dest);
+		goto abort;
 	}
 
-	while(read(sourcefd, &buffer, 1)!=0) {
-		write(destfd, &buffer, 1);
+	while((bufcnt=read(sourcefd, buffer, sizeof(buffer)))>0) {
+		if(write(destfd, buffer, bufcnt)!=bufcnt) {
+			errmsg=ERRMSG(write, dest);
+			goto abort;
+		}
+	}
+
+	if(bufcnt<0) {
+		errmsg=ERRMSG(read, source);
+		goto abort;
 	}
 
 	close(sourcefd);
-	close(destfd);
+	sourcefd=-1;
+	if(close(destfd)<0) {
+		errmsg=ERRMSG(close, dest);
+		goto abort;
+	}
+	return;
+
+#undef ERRMSG
+#undef sourceNAME
+#undef sourceERROR
+#undef destNAME
+#undef destERROR
+
+abort:
+	ALOGE(errmsg, dest, strerror(errno), source);
+
+	if(sourcefd>=0) close(sourcefd);
+	if(destfd>=0) {
+		ALOGI("Removing failed \"%s\" file", dest);
+		/* unlink() first so file contents may never exit FS journal */
+		if(unlink(dest)<0) ALOGE("unlink() failed: %s",
+strerror(errno));
+		close(destfd);
+	}
 }
 
 
