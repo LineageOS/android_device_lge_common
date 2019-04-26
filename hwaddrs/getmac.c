@@ -37,12 +37,12 @@ struct misc_entry {
 	char *const datamiscname;
 	char *const persistname;
 	uint64_t offset;
-	int prefix;
+	char *const prefix;
 };
 
 
 // Validates the contents of the given file
-int checkAddr(char *filepath, int key)
+int checkAddr(const char *const filepath, const char *const prefix)
 {
 	int notallzeroes=0;
 	char charbuf[17];
@@ -56,9 +56,18 @@ int checkAddr(char *filepath, int key)
 		return 0;
 	}
 
-	if(key==1) {
-		if(read(checkfd, charbuf, 14)!=14) goto corrupt;
-		if(strncmp(charbuf, "cur_etheraddr=", 14)!=0) goto corrupt;
+	if(prefix) {
+		if(strlen(prefix)>sizeof(charbuf)) {
+			ALOGE(
+"Internal error, prefix \"%s\" exceeds buffer length of %zu.", prefix,
+sizeof(charbuf));
+			close(checkfd);
+			return 0;
+		}
+
+		if(read(checkfd, charbuf, strlen(prefix))!=
+(ssize_t)strlen(prefix)) goto corrupt;
+		if(memcmp(charbuf, prefix, strlen(prefix))) goto corrupt;
 	}
 
 	if(read(checkfd, charbuf, 17)!=17) goto corrupt;
@@ -91,7 +100,7 @@ corrupt:
 void writeAddr(const struct misc_entry *const entry)
 {
 	const char *const filepath=entry->persistname;
-	int key=entry->prefix;
+	const char *const prefix=entry->prefix;
 
 	uint8_t macbytes[6];
 	char macbuf[19];
@@ -142,7 +151,7 @@ filepath);
 		goto abort;
 	}
 
-	if(key==1&&write(writefd, "cur_etheraddr=", 14)!=14) {
+	if(prefix&&write(writefd, prefix, strlen(prefix))!=(ssize_t)strlen(prefix)) {
 		errmsg="write() of \"%s\" failed: %s";
 		goto abort;
 	}
@@ -173,7 +182,7 @@ strerror(errno));
 
 
 // Simple file copy
-void copyAddr(char *source, char *dest)
+void copyAddr(const char *const source, const char *const dest)
 {
 	char buffer[128];
 	ssize_t bufcnt;
@@ -258,12 +267,12 @@ int main()
 			"/data/misc/wifi/config",
 			"/persist/.macaddr",
 			0xBEEF,
-			1,
+			"cur_etheraddr=",
 		}, {
 			"/data/misc/bluetooth/bdaddr",
 			"/persist/.baddr",
 			0xDEAD,
-			0,
+			NULL,
 		},
 	};
 
