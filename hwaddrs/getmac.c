@@ -124,22 +124,36 @@ sizeof(macbytes)) errmsg="pread";
 filepath);
 
 	if(macnums==0) {
+		const char rerr[]="read() of /dev/urandom failed: %2$s";
 		char product_name[PROPERTY_VALUE_MAX];
 		property_get("ro.product.name", product_name, "");
+
+		if((miscfd=open("/dev/urandom", O_RDONLY))<0) {
+			errmsg="open() of /dev/urandom failed: %2$s";
+			goto abort;
+		}
 
 		if(strstr(product_name, "chuckwagon")) {
 			macbytes[0]=0xDEu;
 			macbytes[1]=0xADu;
 			macbytes[2]=0xBEu;
 		} else {
+			if(read(miscfd, macbytes, 3)!=3) {
+				errmsg=rerr;
+				goto abort;
+			}
+
 			// Last two bits of the first octet are special
-			macbytes[0]=((uint8_t)rand()%256)<<2|0b10;
-			macbytes[1]=(uint8_t)rand()%256;
-			macbytes[2]=(uint8_t)rand()%256;
+			macbytes[0]=macbytes[0]<<2|0b10;
 		}
-		macbytes[3]=(uint8_t)rand()%256;
-		macbytes[4]=(uint8_t)rand()%256;
-		macbytes[5]=(uint8_t)rand()%256;
+
+		if(read(miscfd, macbytes+3, 3)!=3) {
+			errmsg=rerr;
+			goto abort;
+		}
+
+		close(miscfd);
+		miscfd=-1;
 	}
 
 	if(unlink(filepath)<0&&errno!=ENOENT) {
@@ -278,7 +292,6 @@ int main()
 
 	unsigned i;
 
-	srand(time(NULL));
 
 	/* we are apparently invoked with a restrictive umask */
 	umask(S_IWUSR|S_IWGRP|S_IWOTH);
