@@ -21,6 +21,7 @@
 #include <cutils/properties.h>
 #include <fcntl.h>
 #include <stdint.h>
+#include <openssl/sha.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -129,22 +130,31 @@ sizeof(macbytes)) errmsg="pread";
 filepath);
 
 	if(macnums==0) {
-		char product_name[PROPERTY_VALUE_MAX];
-		property_get("ro.product.name", product_name, "");
+		char propval[PROPERTY_VALUE_MAX];
+		unsigned char sum[SHA256_DIGEST_LENGTH];
+		SHA256_CTX ctx;
 
-		if(strstr(product_name, "chuckwagon")) {
+		SHA256_Init(&ctx);
+
+		property_get("ro.build.fingerprint", propval, "");
+		SHA256_Update(&ctx, propval, strlen(propval));
+
+		property_get("ro.serialno", propval, "");
+		SHA256_Update(&ctx, propval, strlen(propval));
+
+		SHA256_Final(sum, &ctx);
+		memcpy(&macbytes, sum, sizeof(macbytes));
+
+		property_get("ro.product.name", propval, "");
+
+		if(strstr(propval, "chuckwagon")) {
 			macbytes[0]=0xDEu;
 			macbytes[1]=0xADu;
 			macbytes[2]=0xBEu;
 		} else {
 			// Last two bits of the first octet are special
-			macbytes[0]=((uint8_t)rand()%256)<<2|0b10;
-			macbytes[1]=(uint8_t)rand()%256;
-			macbytes[2]=(uint8_t)rand()%256;
+			macbytes[0]=macbytes[0]<<2|0b10;
 		}
-		macbytes[3]=(uint8_t)rand()%256;
-		macbytes[4]=(uint8_t)rand()%256;
-		macbytes[5]=(uint8_t)rand()%256;
 	}
 
 	if(unlink(filepath)<0&&errno!=ENOENT) {
@@ -283,7 +293,6 @@ int main()
 
 	unsigned i;
 
-	srand(time(NULL));
 
 	/* we are apparently invoked with a restrictive umask */
 	umask(S_IWUSR|S_IWGRP|S_IWOTH);
