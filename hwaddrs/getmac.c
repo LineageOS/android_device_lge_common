@@ -45,7 +45,7 @@ struct misc_entry {
 int checkAddr(const char *const filepath, const char *const prefix)
 {
 	int notallzeroes=0;
-	char charbuf[17];
+	char charbuf[20]; /* needs to be more than 18 characters */
 	int i;
 	int checkfd=open(filepath, O_RDONLY);
 
@@ -70,7 +70,10 @@ sizeof(charbuf));
 		if(memcmp(charbuf, prefix, strlen(prefix))) goto corrupt;
 	}
 
-	if(read(checkfd, charbuf, 17)!=17) goto corrupt;
+	/* there should be 18 characters, more indicates junk at end */
+	if(read(checkfd, charbuf, sizeof(charbuf))!=18) goto corrupt;
+	if(!isspace(charbuf[17])) goto corrupt;
+
 	for(i=0; i<17; i++) {
 		if(i%3!=2) {
 			if(!isxdigit(charbuf[i])) goto corrupt;
