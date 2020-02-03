@@ -1,3 +1,9 @@
 # WiFi/Bluetooth MAC addresses
 /(vendor|system/vendor)/bin/hwaddrs                                 u:object_r:hwaddrs_exec:s0
 /(vendor|system/vendor)/bin/hwaddrs.readmisc                        u:object_r:hwaddrs_readmisc_exec:s0
+
+# WLAN
+/persist/\.macaddr                                                  u:object_r:presist_file:s0
+
+# Bluetooth
+/persist/\.baddr                                                    u:object_r:persist_file:s0
