@@ -33,6 +33,13 @@
 #undef LOG_TAG
 static const char LOG_TAG[]="hwaddrs";
 
+struct misc_entry {
+	char *const datamiscname;
+	char *const persistname;
+	uint64_t offset;
+	int prefix;
+};
+
 
 // Validates the contents of the given file
 int checkAddr(char *filepath, int key)
@@ -81,8 +88,11 @@ corrupt:
 
 // Writes a file using an address from the misc partition
 // Generates a random address if the one read contains only zeroes
-void writeAddr(char *filepath, int offset, int key)
+void writeAddr(const struct misc_entry *const entry)
 {
+	const char *const filepath=entry->persistname;
+	int key=entry->prefix;
+
 	uint8_t macbytes[6];
 	char macbuf[19];
 	unsigned int i, macnums=0;
@@ -91,7 +101,7 @@ void writeAddr(char *filepath, int offset, int key)
 	const char *errmsg=NULL;
 
 	if(miscfd<0) errmsg="open";
-	else if(pread(miscfd, macbytes, sizeof(macbytes), offset)!=
+	else if(pread(miscfd, macbytes, sizeof(macbytes), entry->offset)!=
 sizeof(macbytes)) errmsg="pread";
 	else for(i=0; i<sizeof(macbytes); ++i) macnums|=macbytes[i];
 
@@ -231,31 +241,40 @@ strerror(errno));
 }
 
 
+void handlemac(const struct misc_entry *const entry)
+{
+	if(!checkAddr(entry->datamiscname, entry->prefix)) {
+		if(!checkAddr(entry->persistname, entry->prefix))
+			writeAddr(entry);
+		copyAddr(entry->persistname, entry->datamiscname);
+	}
+}
+
+
 int main()
 {
-	char *datamiscpath, *persistpath;
+	const struct misc_entry entries[]={
+		{
+			"/data/misc/wifi/config",
+			"/persist/.macaddr",
+			0xBEEF,
+			1,
+		}, {
+			"/data/misc/bluetooth/bdaddr",
+			"/persist/.baddr",
+			0xDEAD,
+			0,
+		},
+	};
+
+	unsigned i;
+
 	srand(time(NULL));
 
 	/* we are apparently invoked with a restrictive umask */
 	umask(S_IWUSR|S_IWGRP|S_IWOTH);
 
-	datamiscpath="/data/misc/wifi/config";
-	persistpath="/persist/.macaddr";
-	if(checkAddr(datamiscpath, 1)==0) {
-		if(checkAddr(persistpath, 1)==0) {
-			writeAddr(persistpath, 0xBEEF, 1);
-		}
-		copyAddr(persistpath, datamiscpath);
-	}
-
-	datamiscpath="/data/misc/bluetooth/bdaddr";
-	persistpath="/persist/.baddr";
-	if(checkAddr(datamiscpath, 0)==0) {
-		if(checkAddr(persistpath, 0)==0) {
-			writeAddr(persistpath, 0xDEAD, 0);
-		}
-		copyAddr(persistpath, datamiscpath);
-	}
+	for(i=0; i<sizeof(entries)/sizeof(0[entries]); ++i) handlemac(entries+i);
 
 	return 0;
 }
