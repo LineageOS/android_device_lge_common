@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2011-2015 The CyanogenMod Project
- * Copyright (C) 2017-2019 The LineageOS Project
+ * Copyright (C) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,73 +32,86 @@
 
 static const char TAG[] = "hwaddrs";
 
+struct misc_entry {
+	char *const datamiscname;
+	char *const persistname;
+	uint64_t offset;
+	char *const prefix;
+};
+
 
 // Validates the contents of the given file
 int checkAddr(const char *const filepath, const char *const prefix,
-const int mode)
+const unsigned mode)
 {
 	int notallzeroes = 0;
+	char charbuf[20]; /* needs to be more than 18 characters */
+	int i;
+	struct stat stat;
+
 	int checkfd = open(filepath, O_RDONLY);
 
-	do {
-		char charbuf[20]; /* needs to be more than 18 characters */
-		int i;
-		struct stat stat;
+	if (checkfd < 0) {
+		if (errno != ENOENT) goto corrupt;
 
-		if (checkfd < 0) break; // doesn't exist/error
-
-		errno = 0; /* successful system calls don't clear errno */
-
-		if (lstat(filepath, &stat) < 0 || !S_ISREG(stat.st_mode)) break;
-		if (mode != (stat.st_mode&mode)) break;
-
-		if (prefix) {
-			if (strlen(prefix) > sizeof(charbuf)) {
-				__android_log_print(ANDROID_LOG_ERROR, TAG,
-"Internal error, prefix \"%s\" exceeds buffer length of %d.", prefix,
-sizeof(charbuf));
-				close(checkfd);
-				return 0;
-			}
-
-			if (read(checkfd, charbuf, strlen(prefix)) != (ssize_t)strlen(prefix)) break;
-			if (memcmp(charbuf, prefix, strlen(prefix))) break;
-		}
-
-		/* there should be 18 characters, more indicates junk at end */
-		if (read(checkfd, charbuf, sizeof(charbuf)) != 18) break;
-		if (!isspace(charbuf[17])) break;
-		for (i = 0; i < 17; i++) {
-			if (i % 3 != 2) {
-				if (!isxdigit(charbuf[i])) {
-					notallzeroes = 0;
-					break;
-				}
-				if (charbuf[i] != '0') notallzeroes = 1;
-			} else if (charbuf[i] != ':') {
-				notallzeroes = 0;
-				break;
-			}
-		}
-	} while (0);
-
-	if (!notallzeroes && errno != ENOENT) {
 		__android_log_print(ANDROID_LOG_INFO, TAG,
+"File \"%s\" doesn't exist", filepath);
+		return 0;
+	}
+
+	if (lstat(filepath, &stat) < 0 || !S_ISREG(stat.st_mode)) goto corrupt;
+	if (mode != (stat.st_mode&mode)) goto corrupt;
+
+	if (prefix) {
+		if (strlen(prefix) > sizeof(charbuf)) {
+			__android_log_print(ANDROID_LOG_ERROR, TAG,
+"Internal error, prefix \"%s\" exceeds buffer length of %lu.", prefix,
+sizeof(charbuf));
+			close(checkfd);
+			return 0;
+		}
+
+		if (read(checkfd, charbuf, strlen(prefix)) != (ssize_t)strlen(prefix)) goto corrupt;
+		if (memcmp(charbuf, prefix, strlen(prefix))) goto corrupt;
+	}
+
+	/* there should be 18 characters, more indicates junk at end */
+	if (read(checkfd, charbuf, sizeof(charbuf)) != 18) goto corrupt;
+	if (!isspace(charbuf[17])) goto corrupt;
+	for (i = 0; i < 17; i++) {
+		if (i % 3 != 2) {
+			if (!isxdigit(charbuf[i])) goto corrupt;
+			notallzeroes |= charbuf[i] - '0';
+		} else if (charbuf[i] != ':') goto corrupt;
+	}
+
+	if (!notallzeroes) goto corrupt;
+
+	__android_log_print(ANDROID_LOG_INFO, TAG, "File \"%s\" validated",
+filepath);
+
+	close(checkfd);
+
+	return 1;
+
+corrupt:
+	__android_log_print(ANDROID_LOG_INFO, TAG,
 "Removing corrupt \"%s\" file", filepath);
-		if (unlink(filepath) < 0) __android_log_print(ANDROID_LOG_ERROR,
+	if (unlink(filepath) < 0) __android_log_print(ANDROID_LOG_ERROR,
 TAG, "unlink() failed: %s", strerror(errno));
-	} else __android_log_print(ANDROID_LOG_INFO, TAG,
-"File \"%s\" %s", filepath, notallzeroes?"validated":"doesn't exist");
 
 	if (checkfd >= 0) close(checkfd);
 
-	return notallzeroes;
+	return 0;
 }
 
 // Writes a file using an address from the misc partition
 // Generates a random address if the one read contains only zeroes
-void writeAddr(const char *const filepath, int offset, const char *const prefix)
+void writeAddr(const struct misc_entry *const entry)
 {
+	const char *const filepath = entry->persistname;
+	const char *const prefix = entry->prefix;
+
 	uint8_t macbytes[6];
 	char macbuf[19];
 	unsigned int i, macnums = 0;
@@ -117,7 +130,7 @@ void writeAddr(const char *const filepath, int offset, const char *const prefix)
 			break;
 		}
 
-		if (pread(miscfd, macbytes, sizeof(macbytes), offset) != sizeof(macbytes)) {
+		if (pread(miscfd, macbytes, sizeof(macbytes), entry->offset) != sizeof(macbytes)) {
 			errmsg = "pread";
 			break;
 		}
@@ -253,27 +266,39 @@ TAG, "unlink() failed: %s", strerror(errno));
 }
 
 
-void handlemac(const char *const datamisc, const char *const persist,
-int offset, const char *const prefix)
+void handlemac(const struct misc_entry *const entry)
 {
-	if (!checkAddr(datamisc, prefix, S_IRUSR|S_IRGRP|S_IROTH)) {
-		if (!checkAddr(persist, prefix, 0))
-			writeAddr(persist, offset, prefix);
-		copyAddr(persist, datamisc);
+	if (!checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH)) {
+		if (!checkAddr(entry->persistname, entry->prefix, 0))
+			writeAddr(entry);
+		copyAddr(entry->persistname, entry->datamiscname);
 	}
 }
 
 
 int main()
 {
+	const struct misc_entry entries[]={
+		{
+			"/data/misc/wifi/config",
+			"/persist/.macaddr",
+			0x3000,
+			"cur_etheraddr=",
+		}, {
+			"/data/misc/bluetooth/bdaddr",
+			"/persist/.baddr",
+			0x4000,
+			NULL,
+		},
+	};
+
+	unsigned i;
+
+
 	/* we are apparently invoked with a restrictive umask */
 	umask(S_IWUSR|S_IWGRP|S_IWOTH);
 
-	handlemac("/data/misc/wifi/config", "/persist/.macaddr", 0x3000,
-"cur_etheraddr=");
-
-	handlemac("/data/misc/bluetooth/bdaddr", "/persist/.baddr", 0x4000,
-NULL);
+	for(i=0; i<sizeof(entries)/sizeof(0[entries]); ++i) handlemac(entries+i);
 
 	return 0;
 }
