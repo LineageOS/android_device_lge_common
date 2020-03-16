@@ -52,6 +52,7 @@ LOCAL_SRC_FILES := readmisc.c
 LOCAL_SHARED_LIBRARIES := libcutils liblog
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE := hwaddrs.readmisc
+LOCAL_VENDOR_MODULE := true
 
 # Somewhat complicated setting for -DHADDRS_OFFSET_MIN and -DHWADDRS_OFFSET_MAX
 # the reasoning is these are allowed to be set, or left unset.  If unset we
