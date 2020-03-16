@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+#include <sys/wait.h>
 #include <errno.h>
 #include <log/log.h>
 #include <ctype.h>
@@ -29,8 +30,8 @@
 #include <time.h>
 #include <unistd.h>
 
+#include "hwaddrs.h"
 
-static const char TAG[] = "hwaddrs";
 
 struct misc_entry {
 	char *const datamiscname;
@@ -105,6 +106,77 @@ TAG, "unlink() failed: %s", strerror(errno));
 	return 0;
 }
 
+
+static int readAddr(const struct misc_entry *const entry, macaddr_t *buf)
+{
+	const char *errmsg;
+	pid_t child;
+	int status;
+	int comm[2]={-1, -1};
+
+	if(pipe(comm)<0)
+		errmsg="pipe";
+	else if((child=fork())<0)
+		errmsg="fork";
+	else if(!child) { /* child process */
+		char fdstr[4];
+		char offstr[16];
+		const char *args[]={"hwaddrs", offstr, NULL};
+
+		/* this closes old stdout */
+		if(dup2(comm[1], 1)<0) {
+			__android_log_print(ANDROID_LOG_ERROR, TAG,
+"%s() failed: %s; unable to retrieve true MAC address", "dup2",
+strerror(errno));
+			exit(1);
+		}
+
+		/* Linux's behavior is close() invalidates the FD as we're not
+		** writing to these, errors are irrelevant */
+		close(comm[0]);
+		close(comm[1]);
+
+		snprintf(offstr, sizeof(offstr), "%lX", entry->offset);
+
+		execve("/vendor/bin/hwaddrs.readmisc", args, environ);
+
+		/* child process, so must do this ourselves and *exit*! */
+		/* hopefully compiler reuses string */
+		__android_log_print(ANDROID_LOG_ERROR, TAG,
+"%s() failed: %s; unable to retrieve true MAC address", "execve",
+strerror(errno));
+
+		exit(1);
+	} else if(close(comm[1]), comm[1]=-1, waitpid(child, &status, 0)<0)
+		errmsg="waitpid";
+	else if(!WIFEXITED(status)) {
+		__android_log_print(ANDROID_LOG_ERROR, TAG,
+"child process failed to exit; retrieving true MAC address failed");
+		close(comm[0]);
+		return 0;
+	} else if(WEXITSTATUS(status)) { /* non-zero process exit is false */
+		close(comm[0]);
+		return 0; /* child provides log message in this case */
+	} else if(read(comm[0], buf, sizeof(macaddr_t))!=sizeof(macaddr_t))
+		errmsg="read";
+	else {
+		close(comm[0]);
+		return 1; /* zero process exit status is true */
+	}
+
+	__android_log_print(ANDROID_LOG_ERROR, TAG,
+"%s() failed: %s; unable to retrieve true MAC address",
+errmsg, strerror(errno));
+
+	if(comm[0]>=0)
+		close(comm[0]);
+	if(comm[1]>=0)
+		close(comm[1]);
+
+	return 0;
+}
+
+
 // Writes a file using an address from the misc partition
 // Generates a random address if the one read contains only zeroes
 void writeAddr(const struct misc_entry *const entry)
@@ -112,38 +184,21 @@ void writeAddr(const struct misc_entry *const entry)
 	const char *const filepath = entry->persistname;
 	const char *const prefix = entry->prefix;
 
-	uint8_t macbytes[6];
+	macaddr_t macbytes;
 	char macbuf[19];
 	unsigned int i, macnums = 0;
 	int miscfd = -1;
-	int writefd = open(filepath, O_WRONLY|O_CREAT|O_EXCL, S_IRUSR);
+	int writefd;
 	const char *errmsg = NULL;
 
-	if (writefd < 0) {
+	if (readAddr(entry, &macbytes))
+		for (i = 0; i < sizeof(macaddr_t); ++i) macnums |= macbytes.macaddr[i];
+
+	if ((writefd = open(filepath, O_WRONLY|O_CREAT|O_EXCL, S_IRUSR)) < 0) {
 		errmsg = "open() of \"%s\" failed: %s";
 		goto abort;
 	}
 
-	do {
-		if ((miscfd = open("/dev/block/bootdevice/by-name/misc", O_RDONLY)) < 0) {
-			errmsg = "open";
-			break;
-		}
-
-		if (pread(miscfd, macbytes, sizeof(macbytes), entry->offset) != sizeof(macbytes)) {
-			errmsg = "pread";
-			break;
-		}
-
-		for (i = 0; i < sizeof(macbytes); ++i) macnums |= macbytes[i];
-	} while(0);
-
-	if (errmsg) __android_log_print(ANDROID_LOG_ERROR, TAG,
-"%s() of misc failed: %s", errmsg, strerror(errno));
-
-	/* close()ing if open() failed is suboptimal, but harmless */
-	close(miscfd);
-	miscfd = -1;
 
 	__android_log_print(ANDROID_LOG_INFO, TAG, "Using %s for \"%s\"",
 macnums?"data from misc":"random data", filepath);
@@ -163,7 +218,7 @@ macnums?"data from misc":"random data", filepath);
 		macbytes[1] = 0xADu;
 		macbytes[2] = 0xBEu;
 
-		if (read(miscfd, macbytes+3, 3) != 3) {
+		if (read(miscfd, macbytes.macaddr+3, 3) != 3) {
 			errmsg = rerr;
 			goto abort;
 		}
@@ -186,7 +241,7 @@ macnums?"data from misc":"random data", filepath);
 		goto abort;
 	}
 	snprintf(macbuf, sizeof(macbuf), "%02x:%02x:%02x:%02x:%02x:%02x\n",
-			macbytes[0], macbytes[1], macbytes[2], macbytes[3], macbytes[4], macbytes[5]);
+			macbytes.macaddr[0], macbytes.macaddr[1], macbytes.macaddr[2], macbytes.macaddr[3], macbytes.macaddr[4], macbytes.macaddr[5]);
 	if (write(writefd, &macbuf, 18) != 18) {
 		errmsg = "write() of \"%s\" failed: %s";
 		goto abort;
