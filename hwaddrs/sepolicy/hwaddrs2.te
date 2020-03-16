@@ -4,10 +4,10 @@ type hwaddrs2_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hwaddrs2)
 
 type hwaddrs_readmisc_exec, exec_type, vendor_file_type, file_type;
-domain_auto_trans(hwaddrs2, hwaddrs_readmisc_exec, update_engine)
+domain_auto_trans(hwaddrs2, hwaddrs_readmisc_exec, vendor_init)
 
-allow update_engine hwaddrs2:fd use;
-allow update_engine hwaddrs2:fifo_file write;
+allow vendor_init hwaddrs2:fd use;
+allow vendor_init hwaddrs2:fifo_file write;
 
 
 allow hwaddrs2 wifi_data_file:file create_file_perms;
