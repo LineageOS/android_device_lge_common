@@ -146,7 +146,7 @@ static int readAddr(const struct misc_entry *const entry, macaddr_t *buf)
 
 		snprintf(offstr, sizeof(offstr), "%lX", entry->offset);
 
-		execve("/system/bin/hwaddrs.readmisc", args, environ);
+		execve("/vendor/bin/hwaddrs.readmisc", args, environ);
 
 		/* child process, so must do this ourselves and *exit*! */
 		/* hopefully compiler reuses string */
