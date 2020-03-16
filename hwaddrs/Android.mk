@@ -12,20 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 LOCAL_PATH:= $(call my-dir)
+
+
 include $(CLEAR_VARS)
-
 LOCAL_MODULE_TAGS := optional
-
-LOCAL_SRC_FILES := getmac.c
-
+LOCAL_SRC_FILES := handlemac.c
 LOCAL_SHARED_LIBRARIES := libcutils liblog
-
 LOCAL_PRELINK_MODULE := false
-
 LOCAL_MODULE := hwaddrs
-
 LOCAL_VENDOR_MODULE := true
-
 include $(BUILD_EXECUTABLE)
+
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := readmisc.c
+LOCAL_SHARED_LIBRARIES := libcutils liblog
+LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE := hwaddrs.readmisc
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_EXECUTABLE)
+
