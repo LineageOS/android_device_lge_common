@@ -330,10 +330,23 @@ TAG, "unlink() failed: %s", strerror(errno));
 
 void handlemac(const struct misc_entry *const entry)
 {
-	if (!checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH)) {
-		if (!checkAddr(entry->persistname, entry->prefix, 0))
-			writeAddr(entry);
+	unsigned cond = 0;
+
+	if (checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH))
+		cond |= 0b10;
+
+	if (checkAddr(entry->persistname, entry->prefix, 0))
+		cond |= 0b01;
+
+	switch(cond) {
+	case 0b00:
+		writeAddr(entry);
+	case 0b01:
 		copyAddr(entry->persistname, entry->datamiscname);
+		break;
+	case 0b10:
+		copyAddr(entry->datamiscname, entry->persistname);
+/*	case 0b11: ; ** no action */
 	}
 }
 
