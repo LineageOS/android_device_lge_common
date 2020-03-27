@@ -213,12 +213,13 @@ TAG, "unlink() failed: %s", strerror(errno));
 }
 
 // Simple file copy
-void copyAddr(const char *const source, const char *const dest)
+void copyAddr(const char *const source, const char *const dest,
+const unsigned mode)
 {
 	char buffer[128];
 	ssize_t bufcnt;
 	int sourcefd = open(source, O_RDONLY);
-	int destfd = open(dest, O_WRONLY|O_CREAT|O_EXCL, S_IRUSR|S_IRGRP|S_IROTH);
+	int destfd = open(dest, O_WRONLY|O_CREAT|O_EXCL, mode);
 	const char *errmsg;
 
 	if (sourcefd < 0) {
@@ -268,10 +269,23 @@ TAG, "unlink() failed: %s", strerror(errno));
 
 void handlemac(const struct misc_entry *const entry)
 {
-	if (!checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH)) {
-		if (!checkAddr(entry->persistname, entry->prefix, 0))
-			writeAddr(entry);
-		copyAddr(entry->persistname, entry->datamiscname);
+	unsigned cond = 0;
+
+	if (checkAddr(entry->datamiscname, entry->prefix, S_IRUSR|S_IRGRP|S_IROTH))
+		cond |= 0b10;
+
+	if (checkAddr(entry->persistname, entry->prefix, 0))
+		cond |= 0b01;
+
+	switch(cond) {
+	case 0b00:
+		writeAddr(entry);
+	case 0b01:
+		copyAddr(entry->persistname, entry->datamiscname, S_IRUSR|S_IRGRP|S_IROTH);
+		break;
+	case 0b10:
+		copyAddr(entry->datamiscname, entry->persistname, S_IRUSR);
+/*	case 0b11: ; ** no action */
 	}
 }
 
