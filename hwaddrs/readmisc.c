@@ -25,6 +25,15 @@
 #define LOG_TAG HWADDRS_TAG
 
 
+/* wonderful "fun" (no, not really) with the C preprocessor, this is REQUIRED */
+#ifdef HWADDRS_MISC_PATH
+#define HWADDRS_MISC_PATH_STR	_EXPAND(HWADDRS_MISC_PATH)
+#endif
+
+#define _EXPAND(str) __EXPAND(str)
+#define __EXPAND(str) #str
+
+
 int main(int argc, char **argv)
 {
 	const char *errmsg;
@@ -39,13 +48,13 @@ int main(int argc, char **argv)
 	}
 
 	offset=strtoul(argv[1], &end, 16);
-	if(!argv[1]||*end||!offset||offset&0x0FFF||offset>0x20000) {
+	if(!argv[1]||*end||offset<HWADDRS_OFFSET_MIN||offset>HWADDRS_OFFSET_MAX||offset&HWADDRS_OFFSET_MASK) {
 		errmsg="Offset invalid or suspicious";
 		goto fail;
 	}
 
 
-	if((miscfd=open("/dev/block/bootdevice/by-name/misc", O_RDONLY))<0) {
+	if((miscfd=open(HWADDRS_MISC_PATH_STR, O_RDONLY))<0) {
 		errmsg="open() of misc failed: %s";
 		goto fail;
 	}
