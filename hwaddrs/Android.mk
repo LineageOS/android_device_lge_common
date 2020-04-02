@@ -1,6 +1,4 @@
-#
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2011-2015 The CyanogenMod project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,12 +11,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# WiFi/Bluetooth MAC addresses
-PRODUCT_PACKAGES += \
-    hwaddrs
 
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr"
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_SRC_FILES := getmac.c
+
+LOCAL_SHARED_LIBRARIES := libcutils liblog
+
+LOCAL_PRELINK_MODULE := false
+
+LOCAL_MODULE := hwaddrs
+
+LOCAL_VENDOR_MODULE := true
+
+include $(BUILD_EXECUTABLE)
