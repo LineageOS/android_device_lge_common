@@ -22,6 +22,19 @@
 #include "hwaddrs.h"
 
 
+/* the C preprocessor can be a **** to work with */
+#ifdef HWADDRS_MISC_PATH
+#define HWADDRS_MISC_PATH_STR	_EXPAND(HWADDRS_MISC_PATH)
+#endif
+
+#define _EXPAND(str) __EXPAND(str)
+#define __EXPAND(str) #str
+
+#ifndef HWADDRS_OFFSET_MASK
+#define HWADDRS_OFFSET_MASK ((HWADDRS_OFFSET_MIN-1)&~(HWADDRS_OFFSET_MIN|HWADDRS_OFFSET_MAX))
+#endif
+
+
 int main(int argc, char **argv)
 {
 	const char *errmsg;
@@ -36,13 +49,13 @@ int main(int argc, char **argv)
 	}
 
 	offset=strtoul(argv[1], &end, 16);
-	if(!argv[1]||*end||!offset||offset&0x0FFF||offset>0x20000) {
+	if(!argv[1]||*end||offset<HWADDRS_OFFSET_MIN||offset>HWADDRS_OFFSET_MAX||offset&HWADDRS_OFFSET_MASK) {
 		errmsg="Offset invalid or suspicious";
 		goto fail;
 	}
 
 
-	if((miscfd=open("/dev/block/bootdevice/by-name/misc", O_RDONLY))<0) {
+	if((miscfd=open(HWADDRS_MISC_PATH_STR, O_RDONLY))<0) {
 		errmsg="open() of misc failed: %s";
 		goto fail;
 	}

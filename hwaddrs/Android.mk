@@ -16,13 +16,33 @@
 LOCAL_PATH:= $(call my-dir)
 
 
+ifneq (,$(HWADDRS_OFFSET_WIFI)$(HWADDRS_OFFSET_BLUETOOTH))
+
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := handlemac.c
 LOCAL_SHARED_LIBRARIES := libcutils liblog
 LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE := hwaddrs
+LOCAL_MODULE := hwaddrs2
 LOCAL_VENDOR_MODULE := true
+
+# Key controlling variables:
+ifdef HWADDRS_OFFSET_WIFI
+LOCAL_CFLAGS += -DHWADDRS_OFFSET_WIFI=$(HWADDRS_OFFSET_WIFI)
+endif
+ifdef HWADDRS_OFFSET_BLUETOOTH
+LOCAL_CFLAGS += -DHWADDRS_OFFSET_BLUETOOTH=$(HWADDRS_OFFSET_BLUETOOTH)
+endif
+
+# Only the file writing portion needs these:
+ifdef HWADDRS_MAC_PREFIX
+LOCAL_CFLAGS += -DHWADDRS_MAC_PREFIX=$(HWADDRS_MAC_PREFIX)
+ifdef HWADDR_MAC_PREFIX_LEN
+LOCAL_CFLAGS += -DHWADDRS_MAC_PREFIX_LEN=$(HWADDRS_MAC_PREFIX_LEN)
+else
+LOCAL_CFLAGS += -DHWADDRS_MAC_PREFIX_LEN=3
+endif
+endif
 include $(BUILD_EXECUTABLE)
 
 
@@ -32,5 +52,39 @@ LOCAL_SRC_FILES := readmisc.c
 LOCAL_SHARED_LIBRARIES := libcutils liblog
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE := hwaddrs.readmisc
+
+# Somewhat complicated setting for -DHADDRS_OFFSET_MIN and -DHWADDRS_OFFSET_MAX
+# Usually these are left unset, but overriding them could be desirable.
+# If unset we need to identify the minimum and maximum values
+# `hwaddrs.readmisc` should accept.  This constrains `hwaddrs.readmisc`'s
+# arguments and effects its security!
+LOCAL_CFLAGS += $(shell perl -w -e ' \
+	my ($$min, $$max)=(1<<60, 0); \
+	foreach(@ARGV) { \
+		next if(length($$_)<=0); \
+		$$_=oct($$_); \
+		$$min=$$_ if($$_<$$min); \
+		$$max=$$_ if($$_>$$max); \
+	} \
+	printf "-DHWADDRS_OFFSET_MIN=0x%X -DHWADDRS_OFFSET_MAX=0x%X", $$min, $$max; \
+	' -- \
+ \
+	$(HWADDRS_OFFSET_MIN) \
+	$(HWADDRS_OFFSET_MAX) \
+	$(HWADDRS_OFFSET_WIFI) \
+	$(HWADDRS_OFFSET_BLUETOOTH) \
+)
+
+# Only the misc reading portion needs these:
+ifdef HWADDRS_MISC_PATH
+LOCAL_CFLAGS += -DHWADDRS_MISC_PATH=$(HWADDRS_MISC_PATH)
+else
+# appropriate for GPT-using devices, as such a reasonable default
+LOCAL_CFLAGS += -DHWADDRS_MISC_PATH=/dev/block/bootdevice/by-name/misc
+endif
+ifdef HWADDRS_OFFSET_MASK
+LOCAL_CFLAGS += -DHWADDRS_OFFSET_MASK=$(HWADDRS_OFFSET_MASK)
+endif
 include $(BUILD_EXECUTABLE)
 
+endif
