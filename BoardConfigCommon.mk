@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,5 +15,9 @@
 # limitations under the License.
 #
 
+ifneq (,$(HWADDRS_OFFSET_WIFI)$(HWADDRS_OFFSET_BLUETOOTH))
+
 # SELinux policies
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+
+endif
