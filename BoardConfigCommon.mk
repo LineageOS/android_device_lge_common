@@ -14,5 +14,9 @@
 # limitations under the License.
 #
 
+ifneq (,$(HWADDRS_OFFSET_WIFI)$(HWADDRS_OFFSET_BLUETOOTH))
+
 # SELinux policies
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+
+endif

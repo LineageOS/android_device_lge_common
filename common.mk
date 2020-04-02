@@ -15,11 +15,17 @@
 # limitations under the License.
 #
 
+ifneq (,$(HWADDRS_OFFSET_WIFI)$(HWADDRS_OFFSET_BLUETOOTH))
+
 # WiFi/Bluetooth MAC addresses
 PRODUCT_PACKAGES += \
     hwaddrs \
     hwaddrs.readmisc
 
+ifneq (,$(HWADDRS_OFFSET_BLUETOOTH))
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr"
+endif
+
+endif
