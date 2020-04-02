@@ -33,6 +33,15 @@
 #include "hwaddrs.h"
 
 
+/* the C preprocessor can be a **** to work with */
+#ifdef HWADDRS_MAC_PREFIX
+#define HWADDRS_MAC_PREFIX_STR	_EXPAND(HWADDRS_MAC_PREFIX)
+#endif
+
+#define _EXPAND(str) __EXPAND(str)
+#define __EXPAND(str) #str
+
+
 struct misc_entry {
 	char *const datamiscname;
 	char *const persistname;
@@ -212,12 +221,12 @@ macnums?"data from misc":"random data", filepath);
 			goto abort;
 		}
 
-#if 1
-		macbytes.macaddr[0] = 0xDEu;
-		macbytes.macaddr[1] = 0xADu;
-		macbytes.macaddr[2] = 0xBEu;
+#ifdef HWADDRS_MAC_PREFIX
+		memcpy(&macbytes, HWADDRS_MAC_PREFIX_STR, HWADDRS_MAC_PREFIX_LEN);
 
-		if (read(miscfd, macbytes.macaddr+3, 3) != 3) {
+#define TMP (sizeof(macbytes)-(HWADDRS_MAC_PREFIX_LEN))
+		if (read(miscfd, macbytes.macaddr+HWADDRS_MAC_PREFIX_LEN, TMP) != TMP) {
+#undef TMP
 			errmsg = rerr;
 			goto abort;
 		}
@@ -346,17 +355,22 @@ void handlemac(const struct misc_entry *const entry)
 int main()
 {
 	const struct misc_entry entries[]={
+#ifdef HWADDRS_OFFSET_WIFI
 		{
 			"/data/misc/wifi/config",
 			"/persist/.macaddr",
-			0x3000,
+			HWADDRS_OFFSET_WIFI,
 			"cur_etheraddr=",
-		}, {
+		},
+#endif
+#ifdef HWADDRS_OFFSET_BLUETOOTH
+		{
 			"/data/misc/bluetooth/bdaddr",
 			"/persist/.baddr",
-			0x4000,
+			HWADDRS_OFFSET_BLUETOOTH,
 			NULL,
 		},
+#endif
 	};
 
 	unsigned i;
