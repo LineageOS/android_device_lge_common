@@ -17,9 +17,11 @@
 
 # WiFi/Bluetooth MAC addresses
 PRODUCT_PACKAGES += \
-    hwaddrs \
+    hwaddrs2 \
     hwaddrs.readmisc
 
+ifeq (,$(HWADDRS_DISABLE_BLUETOOTH))
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr"
+endif
