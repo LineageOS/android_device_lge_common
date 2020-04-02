@@ -37,6 +37,15 @@
 #define LOG_TAG HWADDRS_TAG
 
 
+/* wonderful "fun" (no, not really) with the C preprocessor, this is REQUIRED */
+#ifdef HWADDRS_MAC_PREFIX
+#define HWADDRS_MAC_PREFIX_STR	_EXPAND(HWADDRS_MAC_PREFIX)
+#endif
+
+#define _EXPAND(str) __EXPAND(str)
+#define __EXPAND(str) #str
+
+
 struct misc_entry {
 	char *const datamiscname;
 	char *const persistname;
@@ -211,17 +220,12 @@ strlen(entry->datamiscname)+1);
 		SHA256_Final(sum, &ctx);
 		memcpy(&macbytes, sum, sizeof(macbytes));
 
-		property_get("ro.product.name", propval, "");
-
-		if(strstr(propval, "chuckwagon")) {
-			macbytes.macaddr[0]=0xDEu;
-			macbytes.macaddr[1]=0xADu;
-			macbytes.macaddr[2]=0xBEu;
-		} else {
-
-			// Last two bits of the first octet are special
-			macbytes.macaddr[0]=macbytes.macaddr[0]<<2|0b10;
-		}
+#ifdef HWADDRS_MAC_PREFIX
+		memcpy(&macbytes, HWADDRS_MAC_PREFIX_STR, HWADDRS_MAC_PREFIX_LEN);
+#else
+		// Last two bits of the first octet are special
+		macbytes.macaddr[0]=macbytes.macaddr[0]<<2|0b10;
+#endif
 	}
 
 	if(unlink(filepath)<0&&errno!=ENOENT) {
@@ -345,17 +349,22 @@ void handlemac(const struct misc_entry *const entry)
 int main()
 {
 	const struct misc_entry entries[]={
+#ifdef HWADDRS_OFFSET_WIFI
 		{
 			"/data/misc/wifi/config",
 			"/persist/.macaddr",
-			0xBEEF,
+			HWADDRS_OFFSET_WIFI,
 			"cur_etheraddr=",
-		}, {
+		},
+#endif
+#ifdef HWADDRS_OFFSET_BLUETOOTH
+		{
 			"/data/misc/bluetooth/bdaddr",
 			"/persist/.baddr",
-			0xDEAD,
+			HWADDRS_OFFSET_BLUETOOTH,
 			NULL,
 		},
+#endif
 	};
 
 	unsigned i;
