@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0513fb64_513eb373",
+        "filename": "common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2020-04-07T17:02:57Z",
+      "side": 1,
+      "message": "Isn\u0027t this inferable by a missing HWADDRS_BLUETOOTH_OFFSET ?",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f9c69ac_8f84c9f3",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2020-04-07T17:02:57Z",
+      "side": 1,
+      "message": "Seems unnecessary",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77fbad5a_2155732a",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2020-04-07T17:02:57Z",
+      "side": 1,
+      "message": "define them once outside of the module, then import them in the two modules",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc379dd1_ae36d485",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2020-04-07T17:02:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
