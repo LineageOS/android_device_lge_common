@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "65be58f3_43a71a95",
+        "filename": "common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-04-08T03:02:32Z",
+      "side": 1,
+      "message": "This is a messy situation, for which this was my inclination and I\u0027ll readily be convinced to change.\n\nThing is, this is in common.mk, not BoardConfigCommon.mk.  As such this would only get access to the values in g2-common/g2.mk.  Presently all LGE platforms define their Bluetooth values in BoardConfigCommon.mk, not their common.mk equivalent.\n\nIf you feel it is appropriate to have HWADDRS_OFFSET_BLUETOOTH and HWADDRS_OFFSET_WIFI in g2-common/g2.mk instead of g2-common/BoardConfigCommon.mk then yes, this would work fine and I would be happy to change.  Thing is this feels like moving BOARD_HAVE_BLUETOOTH from g2-common/BoardConfigCommon.mk to g2-common/g2.mk.\n\nOther trick is presently g2-common/g2.mk doesn\u0027t include common/common.mk (this is also true for g3-common/g3.mk and msm8996-common/msm8996.mk; everyone has been copying everyone else and this step was missed).  As such, if common.mk is being included there is a good chance the person will already be aware of this and it may not be important to be able to disable this setting.\n\nI\u0027m suspecting having this value set on a device which lacks Bluetooth is nominally harmless, but seems a bit ugly.\n\n\nThis also relates to the ifneq in Android.mk, since being able to remove hwaddrs2\u0026hwaddrs.readmisc from $(PRODUCT_PACKAGES) is another way to disable their building.",
+      "parentUuid": "0513fb64_513eb373",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f9c69ac_8f84c9f3",
         "filename": "hwaddrs/Android.mk",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6ed3748e_ba80090d",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-04-08T03:02:32Z",
+      "side": 1,
+      "message": "This relates to how it is being enabled/disabled.  If disabling by removing from $(PRODUCT_PACKAGES) is used, then yes this nominally becomes redundant though I would prefer to keep this as backup to ensure it really IS removed.\n\nProblem is this means moving the definition of HWADDRS_OFFSET_BLUETOOTH and HWADDRS_OFFSET_WIFI to g2-common/g2.mk from g2-common/BoardConfigCommon.mk (or similar steps for g3-common and msm8996-common).  I would be happy to go that direction, but I need a second opinion saying that is the way to go.",
+      "parentUuid": "4f9c69ac_8f84c9f3",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77fbad5a_2155732a",
         "filename": "hwaddrs/Android.mk",
         "patchSetId": 4
@@ -47,6 +83,30 @@
       "writtenOn": "2020-04-07T17:02:57Z",
       "side": 1,
       "message": "define them once outside of the module, then import them in the two modules",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69edd450_e6db0ae5",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-04-08T03:02:32Z",
+      "side": 1,
+      "message": "Suggesting using adding these to $(CFLAGS) instead of $(LOCAL_CFLAGS)?  (I\u0027m not yet good on the funkiness Android adds to Android.mk files)\n\nSure this doesn\u0027t end up causing pollution elsewhere?",
+      "parentUuid": "77fbad5a_2155732a",
       "range": {
         "startLine": 28,
         "startChar": 0,
