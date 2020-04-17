@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e903fbb4_7004e777",
+        "filename": "common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-04-17T03:29:56Z",
+      "side": 1,
+      "message": "I\u0027m still a bit uneasy about forcing $(HWADDRS_BLUETOOTH_OFFSET) to be in g2.mk/g3.mk/msm8996.mk, but *I* cannot this is wrong.  This solution is elegant, so I guess this is the way to go.",
+      "parentUuid": "65be58f3_43a71a95",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f9c69ac_8f84c9f3",
         "filename": "hwaddrs/Android.mk",
         "patchSetId": 4
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "This relates to how it is being enabled/disabled.  If disabling by removing from $(PRODUCT_PACKAGES) is used, then yes this nominally becomes redundant though I would prefer to keep this as backup to ensure it really IS removed.\n\nProblem is this means moving the definition of HWADDRS_OFFSET_BLUETOOTH and HWADDRS_OFFSET_WIFI to g2-common/g2.mk from g2-common/BoardConfigCommon.mk (or similar steps for g3-common and msm8996-common).  I would be happy to go that direction, but I need a second opinion saying that is the way to go.",
       "parentUuid": "4f9c69ac_8f84c9f3",
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a1b876_11d77038",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-04-17T03:29:56Z",
+      "side": 1,
+      "message": "That got implemented, so yes this is unnecessary.  I do like *really* getting this to disappear from the namespace, so I prefer leaving this in.  There a stronger reason to get rid of this failsafe disabler?  (should also reassure certain individuals leaving the variables unset will leave this disabled)",
+      "parentUuid": "6ed3748e_ba80090d",
       "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
