@@ -1,2 +1,0 @@
-# Perverting vendor_init to keep things as constrained as possible.
-allow vendor_init misc_block_device:blk_file read;
