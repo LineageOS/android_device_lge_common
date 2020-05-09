@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifneq ($(TARGET_ENABLE_COMMON_IR),false)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -42,3 +44,4 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 
 include $(BUILD_EXECUTABLE)
 
+endif
