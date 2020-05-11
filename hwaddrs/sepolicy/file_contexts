@@ -1,0 +1,3 @@
+# WiFi/Bluetooth MAC addresses
+/(vendor|system/vendor)/bin/hwaddrs2                                u:object_r:hwaddrs2_exec:s0
+/(vendor|system/vendor)/bin/hwaddrs\.readmisc                       u:object_r:hwaddrs_readmisc_exec:s0
