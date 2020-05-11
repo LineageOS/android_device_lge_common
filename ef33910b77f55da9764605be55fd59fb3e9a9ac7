@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57eb2000_e872ab84",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-05-11T05:42:56Z",
+      "side": 1,
+      "message": "This line.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
