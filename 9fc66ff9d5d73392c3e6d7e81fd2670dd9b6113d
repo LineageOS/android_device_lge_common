@@ -173,6 +173,30 @@
     },
     {
       "key": {
+        "uuid": "47b78ad9_33861edb",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-05-28T05:37:48Z",
+      "side": 1,
+      "message": "This was resolved, by cleaning elsewhere and thus nuking the below section.",
+      "parentUuid": "69edd450_e6db0ae5",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc379dd1_ae36d485",
         "filename": "hwaddrs/Android.mk",
         "patchSetId": 4
@@ -193,6 +217,30 @@
       "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64222d49_8d651011",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-05-28T05:37:48Z",
+      "side": 1,
+      "message": "This segment was removed since due to still waiting for new item I ended up cleaning things up.",
+      "parentUuid": "fc379dd1_ae36d485",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "9fc66ff9d5d73392c3e6d7e81fd2670dd9b6113d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
