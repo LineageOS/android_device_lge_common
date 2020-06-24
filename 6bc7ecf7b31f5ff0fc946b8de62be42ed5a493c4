@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "891144be_a7313eb6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:28:40Z",
+      "side": 1,
+      "message": "Its existance doesn\u0027t mean you need to use it. Especially when there is already a better alternative: cutils/log.h\nALOGE,\nALOGD,\nALOGW, ...\nAll provide a better readability due to less arguments and shorter line lengths",
+      "parentUuid": "6dca7a02_662baa4b",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ac785d3_9d6c1d7b",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -66,6 +84,29 @@
       "side": 1,
       "message": "Comes from someone else.  Unless you believe in squashing history (I\u0027m strongly against in most cases), this is left in.\n\nStrictly this is unnecessary as the size chosen for macbuf is large enough to hold the data.  I switched this to snprintf() against the possibility of someone in the future shrinking it too much.\n\nPerhaps this should be left alone as a segmentation violation would point more overtly towards the failure than corrupt output.",
       "parentUuid": "6ac785d3_9d6c1d7b",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32a82994_fb750afb",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:28:40Z",
+      "side": 1,
+      "message": "magic numbers...",
+      "range": {
+        "startLine": 251,
+        "startChar": 58,
+        "endLine": 251,
+        "endChar": 64
+      },
       "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
