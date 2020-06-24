@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8200f6e2_2dd3be31",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:41:01Z",
+      "side": 1,
+      "message": "operand and oeprator all need their space: \"\u003ca\u003e \u0026 \u003cb\u003e\"",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "3b7a1e599eec9561db09d5269ca99fd878372611",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
