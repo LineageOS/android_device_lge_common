@@ -1,0 +1,265 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af3fa64a_0fbb1d2c",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Why 17?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10cbd267_98d07803",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "% 3 \u003d 2? What in the world are we looking for? The format of this string should be explained somewhere, this is not at all clear for someone not familiar with the format.",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f5618b_40613e55",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "uhh, wtf? This is horrible code flow, it should be restructured to flow more logically.",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "706d633e_16cab454",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Why 19?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03338e06_46465378",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "This should be defined in a header somewhere.",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8541b02c_1ace952e",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "What is macnums even for? If the mac is all 0?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "500e041f_ae1205fc",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Just...omit the #else block? Why are we adding code that isn\u0027t being used? And whose OUI is this?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec702937_3b384da8",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Unrelated to this change in particular, but why are we adding cur_etheraddr\u003d for something we\u0027re creating? Is that something android is looking for? The driver?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f241853_f12662d9",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Why is this not a #define in a header?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ca8191_5f984ba3",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Why is this not a #define in a header?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fce3f07_e50279b3",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "What is key\u003d1 even for? Variable naming should be helpful...",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b737c0_1d22bd99",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "Why is this not a #define in a header?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f735f9_c20431eb",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "See comment above about #defines",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da35dce7_5a4eddf9",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "See comment above about #defines",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b9b5c6_f330f186",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:10:19Z",
+      "side": 1,
+      "message": "See comment above about #defines",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
