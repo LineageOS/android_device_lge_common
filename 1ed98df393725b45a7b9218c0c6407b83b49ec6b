@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "67496a05_5aafbcca",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "the following code inlines the assignment and check while this one doesn\u0027t -\u003e mixed style",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "525b1bff_1ac62630",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -53,6 +76,29 @@
     },
     {
       "key": {
+        "uuid": "6e01a7e8_a01af74f",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "continued line needs more indentation",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09b9fc32_a0320b20",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -64,6 +110,29 @@
       "writtenOn": "2020-06-24T00:18:58Z",
       "side": 1,
       "message": "so goto here, but break above...",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcd7ec11_c647aa66",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "magic numbers, use strlen or sizeof",
+      "range": {
+        "startLine": 144,
+        "startChar": 29,
+        "endLine": 144,
+        "endChar": 38
+      },
       "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -98,6 +167,75 @@
       "writtenOn": "2020-06-24T00:18:58Z",
       "side": 1,
       "message": "Why is this const?",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f46cae9_5f4446e1",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "the use of positional arguments here is weird and hard to follow what this will end ip as. Also, not all of your errmsg assignments use it\n-\u003e\n#include \u003ccutils/log.h\u003e\nALOGE(\"message %d %s\", arg1, arg2, ...);",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 178,
+        "endChar": 45
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0af56c3_e6412da2",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "example of non-positional string arguments...",
+      "range": {
+        "startLine": 188,
+        "startChar": 3,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2e82ba_ee8be201",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:23:17Z",
+      "side": 1,
+      "message": "continued line needs indentation",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 45
+      },
       "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
