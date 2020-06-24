@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d83596_6899b737",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:34:20Z",
+      "side": 1,
+      "message": "What are you trying to accomplish with this?",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b611de_84abdfc8",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:34:20Z",
+      "side": 1,
+      "message": "....why is this not defined to some useful name, and in a header file somewhere?",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92119fec_d14b7cec",
+        "filename": "hwaddrs/readmisc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:34:20Z",
+      "side": 1,
+      "message": "Again, what are you trying to accomplish here? This all looks needlessly complex.",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
