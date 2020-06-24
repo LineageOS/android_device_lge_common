@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92d1c340_0c18c329",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:22:20Z",
+      "side": 1,
+      "message": "Again, don\u0027t use __android_log_print",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ac785d3_9d6c1d7b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:22:20Z",
+      "side": 1,
+      "message": "why were you not using snprintf to begin with?",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
