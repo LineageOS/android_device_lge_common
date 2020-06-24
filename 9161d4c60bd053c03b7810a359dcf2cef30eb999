@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32998b55_94403b8c",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:24:14Z",
+      "side": 1,
+      "message": "What is this unused code is even for?",
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
