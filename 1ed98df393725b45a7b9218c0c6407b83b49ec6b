@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "525b1bff_1ac62630",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "This is a silly micro optimization to use ++i. Use what people are familiar with",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f3e985_fd9e6c18",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "again with the do {} while(0)?",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1bcd6c1_328b477e",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "Again, __android_log_print is not meant to be used directly.",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09b9fc32_a0320b20",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "so goto here, but break above...",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3de78d86_71dc853d",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "Is 128 guaranteed to be safe?",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50ee41ac_7a175a41",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:18:58Z",
+      "side": 1,
+      "message": "Why is this const?",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
