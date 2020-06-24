@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6dca7a02_662baa4b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-24T04:56:10Z",
+      "side": 1,
+      "message": "Oh yes it is:\n\nhttps://developer.android.com/ndk/reference/group/logging\n\n(I suspect this function has a double-underscore due to history, not because it is meant for internal use)",
+      "parentUuid": "92d1c340_0c18c329",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ac785d3_9d6c1d7b",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-06-24T00:22:20Z",
       "side": 1,
       "message": "why were you not using snprintf to begin with?",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d5842ff_0c71f78a",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-24T04:56:10Z",
+      "side": 1,
+      "message": "Comes from someone else.  Unless you believe in squashing history (I\u0027m strongly against in most cases), this is left in.\n\nStrictly this is unnecessary as the size chosen for macbuf is large enough to hold the data.  I switched this to snprintf() against the possibility of someone in the future shrinking it too much.\n\nPerhaps this should be left alone as a segmentation violation would point more overtly towards the failure than corrupt output.",
+      "parentUuid": "6ac785d3_9d6c1d7b",
       "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
