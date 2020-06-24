@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca46e3f8_6906c55b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:29:41Z",
+      "side": 1,
+      "message": "What in the world are these cases? Why not use an enum and give these helpful names?",
+      "revId": "0e085557809bdfd3b3e3f70a018fa36bff3e7bcf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
