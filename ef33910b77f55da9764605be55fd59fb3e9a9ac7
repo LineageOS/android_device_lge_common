@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "8b62abbe_45388640",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:15:08Z",
+      "side": 1,
+      "message": "What are you doing? __android_log_print is not meant to be called directly.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75bdf857_67e3bb40",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:15:08Z",
+      "side": 1,
+      "message": "This is awful code style. See previous change for comment about clang-format.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57eb2000_e872ab84",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -16,6 +50,23 @@
       "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a160a4f_80dfd0cf",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-06-24T00:15:08Z",
+      "side": 1,
+      "message": "what is the mask that we are invoked with? S_IWOTH is totally wrong.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
