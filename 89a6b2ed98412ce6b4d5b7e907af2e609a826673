@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "1888a916_ac23db69",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:14:35Z",
+      "side": 1,
+      "message": "what do you need that do-while loop for? This is not a macro, where it makes sense to encapsulate stuff in  do-while so you can end the statement with a semicolon or smth.",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "10cbd267_98d07803",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -138,6 +161,52 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "Unrelated to this change in particular, but why are we adding cur_etheraddr\u003d for something we\u0027re creating? Is that something android is looking for? The driver?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a539ef7b_16ab764e",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:14:35Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 81
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba649593_77bc50db",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:14:35Z",
+      "side": 1,
+      "message": "magic numbers? Use strlen or sizeof",
+      "range": {
+        "startLine": 96,
+        "startChar": 25,
+        "endLine": 96,
+        "endChar": 27
+      },
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
