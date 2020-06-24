@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "061639a8_9b4df408",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:03:55Z",
+      "side": 1,
+      "message": "after every comma separating arguments, add a space",
+      "range": {
+        "startLine": 30,
+        "startChar": 48,
+        "endLine": 30,
+        "endChar": 59
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25d3a206_761b007f",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:03:55Z",
+      "side": 1,
+      "message": "line length, space between arguments",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1218aa88_02baddfd",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-06-24T15:03:55Z",
+      "side": 1,
+      "message": "separate operands and operator: \"i \u003c 6;\"",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
