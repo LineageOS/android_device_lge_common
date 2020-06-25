@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58d14ebe_cc7b2fa5",
+        "filename": "hwaddrs/sepolicy/hwaddrs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:25:47Z",
+      "side": 1,
+      "message": "vendor_init is not a suitable domain for this either. Why was this chosen? If you really feel like you *must* exec hwaddrs2, why not just define your own domain with the permissions you want?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 63
+      },
+      "revId": "f3b993475c507acabc8215d08f93e829b3d49b5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
