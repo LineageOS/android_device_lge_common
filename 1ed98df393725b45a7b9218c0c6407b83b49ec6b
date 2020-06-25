@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4e4632f3_b1742edc",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:39:05Z",
+      "side": 1,
+      "message": "Fair point, this is not an exact reimplementation of strerror. My meaning is that it reads a lot like what strerror(errno) is doing, except you are adding your own calls to it.",
+      "parentUuid": "50cb5300_040755df",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 90,
+        "endChar": 27
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67496a05_5aafbcca",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
