@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "441cd94a_8f00695c",
+        "filename": "hwaddrs/readmisc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:04:24Z",
+      "side": 1,
+      "message": "Use spaces between (, !\u003d, etc.\n\nAlso consider using a real option parser (getopt, gflags, etc) instead of rolling your own.",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "1d43d4e748070697be7bf894600a826f76613a8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a581e36_8b17deba",
+        "filename": "hwaddrs/readmisc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:04:24Z",
+      "side": 1,
+      "message": "Use ALOGE instead.",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "1d43d4e748070697be7bf894600a826f76613a8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20bb77fe_7b52b327",
+        "filename": "sepolicy/hwaddrs.te",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:04:24Z",
+      "side": 1,
+      "message": "Is there an explanation for why this should be run from the update_engine domain? I didn\u0027t see any reasoning behind this in the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "1d43d4e748070697be7bf894600a826f76613a8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
