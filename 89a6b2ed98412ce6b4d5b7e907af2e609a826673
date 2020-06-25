@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "93882eda_d55fe089",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  17 characters is sufficient space for the data expected to be read, which worst case /should/ be \"cur_etheraddr\u003d01:23:45:67:89:ab\".  Worse this results in the 17 occurring in several places.",
+      "parentUuid": "af3fa64a_0fbb1d2c",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1888a916_ac23db69",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2020-06-24T15:14:35Z",
       "side": 1,
       "message": "what do you need that do-while loop for? This is not a macro, where it makes sense to encapsulate stuff in  do-while so you can end the statement with a semicolon or smth.",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c50acb8_27654b0d",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  do { ... } while(0); can be a handy substitute for small goto jumps.",
+      "parentUuid": "1888a916_ac23db69",
       "range": {
         "startLine": 38,
         "startChar": 1,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "66a2f87c_d8649fb7",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  \"01:23:45:67:89:ab\"  The colons are every third character.  Certainly not a wonderful method of looping through the input data and validating it, but it is valid.",
+      "parentUuid": "10cbd267_98d07803",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35f5618b_40613e55",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -76,6 +142,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "uhh, wtf? This is horrible code flow, it should be restructured to flow more logically.",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e46db8ce_8f790a42",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  I agree.  Thing is, this is history and history is valuable to preserve.  This commit and everything before is simply grabbing the history of the bits out of msm8996-common.  I advise against viewing them in Gerrit as it does a poor job of showing what is going on.",
+      "parentUuid": "35f5618b_40613e55",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "b7b02aef_427f5c37",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  19 bytes was adequate space for the data being played with.",
+      "parentUuid": "706d633e_16cab454",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03338e06_46465378",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -110,6 +212,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "This should be defined in a header somewhere.",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8eff263_615ba41a",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  /dev/block/bootdevice/by-name/misc is already /sort of/ a macro.  On the LGE MSM8996 devices (where this came from) this picked up the GPT label for the \"misc\" area.  Rather superior to \"/dev/block/sda19\" or \"/dev/block/sdb19\".",
+      "parentUuid": "03338e06_46465378",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "f5a1748e_a7af26a6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  This is simply testing for whether what was read out of misc was all-zeros (which suggests misc was wiped).",
+      "parentUuid": "8541b02c_1ace952e",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "500e041f_ae1205fc",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -144,6 +282,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "Just...omit the #else block? Why are we adding code that isn\u0027t being used? And whose OUI is this?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "134a1c3e_c484a1f1",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "This portion has been modified from the proper LGE MSM8996 history.\n\nThe reason is the rest of this file is identical (save spacing) between G2, G3 and MSM8996.  This portion varies since the method of generating a substitute MAC varies a bit.  The version in msm8996-common does a property_get(\"ro.product.name\",...), uses that to emulate LGE\u0027s OUI if the value is recognized and then falls back to pure random.\n\nThis is trying to stay close to the original history while ripping out the most device-specific portion.  One would use other OUIs for other LGE devices.\n\n{ 0xDEu, 0xADu, 0xBEu } was simply an arbitrary fill-in constant (care for some 0x1337DEADBEEF?).  Luckily 0xDEu results in the locally-administered bit being set, which it should be in a case of a randomly generated address.",
+      "parentUuid": "500e041f_ae1205fc",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "0a15fdba_5810c8f5",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  The format for /data/misc/wifi/config is in general \"cur_etheraddr\u003dde:ad:be:ef:13:37\\n\", the format for /data/misc/bluetooth/bdaddr is \"de:ad:be:ef:13:37\\n\".",
+      "parentUuid": "ec702937_3b384da8",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a539ef7b_16ab764e",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -178,6 +352,30 @@
       "writtenOn": "2020-06-24T15:14:35Z",
       "side": 1,
       "message": "line length",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 81
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5803b9e6_641a4034",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.",
+      "parentUuid": "a539ef7b_16ab764e",
       "range": {
         "startLine": 95,
         "startChar": 1,
@@ -213,6 +411,30 @@
     },
     {
       "key": {
+        "uuid": "7ab2b1bd_e058e675",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Notice the line *immediately* before?  The length generated is effectively specified on the line above and *cannot* vary.  While I\u0027ll readily concur with several criticisms of this portion, *this* is a non-issue.",
+      "parentUuid": "ba649593_77bc50db",
+      "range": {
+        "startLine": 96,
+        "startChar": 25,
+        "endLine": 96,
+        "endChar": 27
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f241853_f12662d9",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -224,6 +446,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "Why is this not a #define in a header?",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d122be9c_d0e9f0f9",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  Isn\u0027t used elsewhere.  This is effectively an Android constant which cannot be found in a header.",
+      "parentUuid": "6f241853_f12662d9",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -247,6 +487,24 @@
     },
     {
       "key": {
+        "uuid": "cbf42215_5a6c9d64",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  This is a file internal to `hwaddrs` which isn\u0027t shared with anything.  Yes for something larger having it in a header is good, but here at this scale this is reasonable.",
+      "parentUuid": "43ca8191_5f984ba3",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fce3f07_e50279b3",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -258,6 +516,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "What is key\u003d1 even for? Variable naming should be helpful...",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "262e28f2_851e5dbe",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.  Reuse of strings is also helpful.  This is one of the reasons why this is one of the things my commits changed this.",
+      "parentUuid": "5fce3f07_e50279b3",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -281,6 +557,24 @@
     },
     {
       "key": {
+        "uuid": "2a1077a4_f63e02d4",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.",
+      "parentUuid": "b7b737c0_1d22bd99",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03f735f9_c20431eb",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -292,6 +586,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "See comment above about #defines",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661f2e4e_4bded3c0",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.",
+      "parentUuid": "03f735f9_c20431eb",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -315,6 +627,24 @@
     },
     {
       "key": {
+        "uuid": "b3ddfea0_5bdcc994",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.",
+      "parentUuid": "da35dce7_5a4eddf9",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78b9b5c6_f330f186",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -326,6 +656,24 @@
       "writtenOn": "2020-06-24T00:10:19Z",
       "side": 1,
       "message": "See comment above about #defines",
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b09522d_7ba3daa8",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T03:15:36Z",
+      "side": 1,
+      "message": "Please blame the original author.",
+      "parentUuid": "78b9b5c6_f330f186",
       "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
