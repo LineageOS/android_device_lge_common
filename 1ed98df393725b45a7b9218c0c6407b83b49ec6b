@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "50cb5300_040755df",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Please point to the custom implementation of strerror().  errmsg is handing error messages to the error handling code which outputs them to the log and takes care of the strerror().",
+      "parentUuid": "3d21f10e_64861a2d",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 90,
+        "endChar": 27
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67496a05_5aafbcca",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-24T15:23:17Z",
       "side": 1,
       "message": "the following code inlines the assignment and check while this one doesn\u0027t -\u003e mixed style",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d147ea5_3f6e16f2",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "A bit different.  I generally opt for smallest change possible, and didn\u0027t have justification to pull the open() off the initialization.\n\nIn fact many styles discourage use of complex executable code in initializers and open() certainly qualifies.  Yet I lacked a need to change this.",
+      "parentUuid": "67496a05_5aafbcca",
       "range": {
         "startLine": 92,
         "startChar": 1,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "b43390ac_534cb548",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "What?!  This is the slightest bit unfamiliar?",
+      "parentUuid": "525b1bff_1ac62630",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9f3e985_fd9e6c18",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -76,6 +142,24 @@
       "writtenOn": "2020-06-24T00:18:58Z",
       "side": 1,
       "message": "again with the do {} while(0)?",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "961170c6_146a1b1c",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Hmm, actually do have a good resolution for this case.  Must have been in the do { ... } while(0); mode from having to deal with the section from the previous author.",
+      "parentUuid": "d9f3e985_fd9e6c18",
       "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -117,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "789e40d7_b1fb6d64",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Please point to any documentation suggesting that.  The very fact that it is documented suggests one is allowed to use it directly.\n\nOTOH its capabilities may be overkill for this situation.  Perhaps I\u0027ve had to deal with too many cases where the higher-level utilities weren\u0027t appropriate in recent memory.  Thanks to Michael W\u0027s comments reminding me of this, I\u0027ll see if the alternatives are workable here (likely).\n\nAlso watch all the APIs fly by and you start using the wrong ones at the wrong time.  Yes, I\u0027m tending to favor NDK-available APIs.",
+      "parentUuid": "f1bcd6c1_328b477e",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6e01a7e8_a01af74f",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -128,6 +230,30 @@
       "writtenOn": "2020-06-24T15:23:17Z",
       "side": 1,
       "message": "continued line needs more indentation",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41142134_c3f09a31",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "My style is no indentation on continued lines.  I find starting from column 1 being a better marker for them.  Problem is adding additional indentation means you\u0027ve reduced the space available for what is already a long line, greatly increasing the odds of spilling over onto multiple continued lines.\n\nI like this style, of all the things I disagree with other styles this is the one which comes close to giving me outright stomach trouble.  As such I\u0027ll give two style options:  We can go with my preferred style and use un-indented continued lines; or I can reset to 9000 column lines.\n\nIn fact while I *strongly* favor preserving history, formatting isn\u0027t a crucial piece of history.  I\u0027m willing to reformat the entire chain if you desire.",
+      "parentUuid": "6e01a7e8_a01af74f",
       "range": {
         "startLine": 119,
         "startChar": 0,
@@ -180,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "8a4edf00_40af0ea8",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Look at the line *right* before it.  *That* line determines the value.",
+      "parentUuid": "dcd7ec11_c647aa66",
+      "range": {
+        "startLine": 144,
+        "startChar": 29,
+        "endLine": 144,
+        "endChar": 38
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3de78d86_71dc853d",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -197,6 +347,24 @@
     },
     {
       "key": {
+        "uuid": "da0c42b8_6561fb22",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "It could be an array of size 1 and the code would remain safe.  This would be a Bad Idea(tm) as it results in a read(fd, buf, 1) which kills performance, but it wouldn\u0027t cause failures.  128 was chosen as being large enough to handle the entire payload in one pass in all current cases.",
+      "parentUuid": "3de78d86_71dc853d",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50ee41ac_7a175a41",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -211,6 +379,24 @@
       "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f907423_135e0446",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "This should increase efficiency as it allows the compiler to skip copying the strings.  This also allows the compiler to check for illegal access at compile time.",
+      "parentUuid": "50ee41ac_7a175a41",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -237,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "97da548a_0db59762",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Partially using both is supposed to be a warning of something slightly interesting going on.  Though perhaps a bit of macro usage would reduce the likelihood of a future developer screwing this up.",
+      "parentUuid": "6f46cae9_5f4446e1",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 178,
+        "endChar": 45
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0af56c3_e6412da2",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -248,6 +458,30 @@
       "writtenOn": "2020-06-24T15:23:17Z",
       "side": 1,
       "message": "example of non-positional string arguments...",
+      "range": {
+        "startLine": 188,
+        "startChar": 3,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95e88965_6d249be5",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T06:32:15Z",
+      "side": 1,
+      "message": "Indeed, again partially meant as a warning sign.  The result is effectively \"write() or \\\"%1$s\\\" failed: %2$s\", notice something interesting?",
+      "parentUuid": "d0af56c3_e6412da2",
       "range": {
         "startLine": 188,
         "startChar": 3,
