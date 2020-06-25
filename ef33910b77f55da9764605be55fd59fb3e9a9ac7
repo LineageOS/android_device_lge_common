@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "866fa704_509600c9",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:38:16Z",
+      "side": 1,
+      "message": "This should be an ALOGI.",
+      "parentUuid": "8b62abbe_45388640",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75bdf857_67e3bb40",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -110,6 +128,29 @@
       "writtenOn": "2020-06-24T00:15:08Z",
       "side": 1,
       "message": "what is the mask that we are invoked with? S_IWOTH is totally wrong.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60879d70_511f461f",
+        "filename": "sepolicy/hwaddrs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:38:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these just be rw_dir_perms; ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 71
+      },
       "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
