@@ -16,6 +16,24 @@
       "revId": "0e085557809bdfd3b3e3f70a018fa36bff3e7bcf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21082ab_96387b65",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:59:51Z",
+      "side": 1,
+      "message": "You may alternately want to consider adding the mode to your struct misc_entry so you don\u0027t need this construction.",
+      "parentUuid": "ca46e3f8_6906c55b",
+      "revId": "0e085557809bdfd3b3e3f70a018fa36bff3e7bcf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
