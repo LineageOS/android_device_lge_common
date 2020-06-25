@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8ece3de4_a3a9d241",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:21:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be ifneq ($(HWADDRS_OFFSET_WIFI),) ...?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38d098bb_ac0994e9",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:21:16Z",
+      "side": 1,
+      "message": "Can\u0027t this just be done using the standard:\n\nifeq ($(VAL),)\nLOCAL_CFLAGS +\u003d -DFLAG\u003d$VAL\nendif\n\nconstruction? This seems overly complicated. I would also argue that readable code outweighs most other considerations here.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 37
+      },
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87d83596_6899b737",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 9
@@ -31,6 +77,24 @@
       "side": 1,
       "message": "The comment and naming is supposed to point to what is happening.  Ever done interesting things with the C-preprocessor?\n\nThis file is built via `cc -DHWADDRS_MAC_PREFIX\u003d$(HWADDRS_MAC_PREFIX)` if $(HWADDRS_MAC_PREFIX) is defined.  An example definition would be the line \"HWADDRS_MAC_PREFIX :\u003d \\\\xDE\\\\xAD\\\\xBE\" in BoardConfig.mk.\n\nDifficulty is where this is used it needs to be a string.  Given the above definition in BoardConfig.mk would result in the equivalent of the line `#define HWADDRS_MAC_PREFIX_STR \"\\xDE\\xAD\\xBE\"`.  This generates the needed effect.\n\nIf you feel there is a need for more commentary, say so.  This is very much preprocessor black magic.",
       "parentUuid": "87d83596_6899b737",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d337a203_221542f3",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:21:16Z",
+      "side": 1,
+      "message": "I think the question is more, \"what problem is this trying to solve that cannot be solved using more traditional constructions?\".\n\nAlso, isn\u0027t this just the standard stringification macro? (https://gcc.gnu.org/onlinedocs/gcc-4.8.5/cpp/Stringification.html)",
+      "parentUuid": "64ab56e3_282fcc66",
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -69,6 +133,24 @@
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e64beea_2f085a9b",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T06:21:16Z",
+      "side": 1,
+      "message": "IMO the hit to readability isn\u0027t worth using this.",
+      "parentUuid": "925db342_926e4228",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     },
     {
       "key": {
