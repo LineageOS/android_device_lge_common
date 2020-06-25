@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "0144e168_a069b723",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:36:31Z",
+      "side": 1,
+      "message": "A return code of 0 means error? That seems backwards to me.",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1888a916_ac23db69",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
