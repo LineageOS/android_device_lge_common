@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5afe0159_4410e141",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:46:34Z",
+      "side": 1,
+      "message": "Consider pulling this out into a helper function.",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 0
+      },
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32998b55_94403b8c",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
