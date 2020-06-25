@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "792e45ca_600c4161",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:45:16Z",
+      "side": 1,
+      "message": "Use \u003clog/log.h\u003e over \u003ccutils/log.h\u003e, but do use ALOG* within AOSP itself.\n\nUse of the NDK logging functionality is allowed, but is considered suboptimal from within AOSP itself.",
+      "parentUuid": "891144be_a7313eb6",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ac785d3_9d6c1d7b",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -106,6 +124,29 @@
         "startChar": 58,
         "endLine": 251,
         "endChar": 64
+      },
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aff40364_a86685fa",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:45:16Z",
+      "side": 1,
+      "message": "Why not just #define the strings?",
+      "range": {
+        "startLine": 251,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 34
       },
       "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
