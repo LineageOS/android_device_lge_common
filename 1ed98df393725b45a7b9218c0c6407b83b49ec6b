@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3d21f10e_64861a2d",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:42:21Z",
+      "side": 1,
+      "message": "Can\u0027t you just check errno and use strerror(errno) instead of custom rolling your own version?",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 90,
+        "endChar": 27
+      },
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67496a05_5aafbcca",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -70,6 +93,24 @@
       "writtenOn": "2020-06-24T00:18:58Z",
       "side": 1,
       "message": "Again, __android_log_print is not meant to be used directly.",
+      "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aa1e494_ed817d3d",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:42:21Z",
+      "side": 1,
+      "message": "Use ALOGI, or ALOGE for errors.",
+      "parentUuid": "f1bcd6c1_328b477e",
       "revId": "1ed98df393725b45a7b9218c0c6407b83b49ec6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
