@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "64ab56e3_282fcc66",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T05:45:25Z",
+      "side": 1,
+      "message": "The comment and naming is supposed to point to what is happening.  Ever done interesting things with the C-preprocessor?\n\nThis file is built via `cc -DHWADDRS_MAC_PREFIX\u003d$(HWADDRS_MAC_PREFIX)` if $(HWADDRS_MAC_PREFIX) is defined.  An example definition would be the line \"HWADDRS_MAC_PREFIX :\u003d \\\\xDE\\\\xAD\\\\xBE\" in BoardConfig.mk.\n\nDifficulty is where this is used it needs to be a string.  Given the above definition in BoardConfig.mk would result in the equivalent of the line `#define HWADDRS_MAC_PREFIX_STR \"\\xDE\\xAD\\xBE\"`.  This generates the needed effect.\n\nIf you feel there is a need for more commentary, say so.  This is very much preprocessor black magic.",
+      "parentUuid": "87d83596_6899b737",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00b611de_84abdfc8",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 9
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "925db342_926e4228",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T05:45:25Z",
+      "side": 1,
+      "message": "Peephole optimization badly needed.  This is used twice in the next line and then #undef\u0027d.  This is simply keeping the next line from being outrageously long.",
+      "parentUuid": "00b611de_84abdfc8",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92119fec_d14b7cec",
         "filename": "hwaddrs/readmisc.c",
         "patchSetId": 9
@@ -47,6 +83,24 @@
       "writtenOn": "2020-06-24T00:34:20Z",
       "side": 1,
       "message": "Again, what are you trying to accomplish here? This all looks needlessly complex.",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fd8d500_1847bd06",
+        "filename": "hwaddrs/readmisc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-25T05:45:25Z",
+      "side": 1,
+      "message": "If you\u0027re used to bit manipulation this is straightforward.  If you\u0027re not used to bit manipulation I\u0027m unsure I can cover enough for a good explanation here.\n\nThis is identifying which low-order bits are always zero and thus are indications of garbled input/attack if set.  Guess this really would be better as (~HWADDRS_OFFSET_MIN\u0026~HWADDRS_OFFSET_MAX) (instead flagging all bits which are zero for all valid inputs).",
+      "parentUuid": "92119fec_d14b7cec",
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
