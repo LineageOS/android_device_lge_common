@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "22d39083_17978f71",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:32:48Z",
+      "side": 1,
+      "message": "Pardon my ignorance, what\u0027s reading this file?",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1218aa88_02baddfd",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 2
