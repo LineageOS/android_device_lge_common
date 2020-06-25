@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "00ed2626_af4d02f6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "What are the extra 2 bytes for? It seems like only 18 are used at any given time. Maybe make that a constant using #define above?",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 60
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15622d7d_e59e388f",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "Going to perhaps repeat a lot of the earlier feedback here, since this is a change called \"Code cleanup\", and you\u0027re modifying a lot of this anyway.\n\nI mentioned earlier, but returning 0 for error is the reverse of the usual convention. 0 typically indicates success. Consider returning an errno code here instead, like -ENOENT or -EINVAL.",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dbb6b3b_60ea3f1c",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "nit: space between bitwise \u0026",
+      "range": {
+        "startLine": 63,
+        "startChar": 19,
+        "endLine": 63,
+        "endChar": 31
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a269800_7880ce60",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "Prefer ALOGE to __android_log_print, it will also take LOG_TAG into account for you.",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89db64a9_2128ef5b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "nit: %lu is not the print specifier for size_t, this should be %zu",
+      "range": {
+        "startLine": 68,
+        "startChar": 57,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f51c1e_46a89e66",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "How come the above checks have a \"goto corrupt;\" in case of error, but not here?",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 12
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f815c58_18823e12",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "Why check isspace(charbuf[17]) versus checking what you expect the last character to be (presumably a null terminator)?",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64a9bc8a_32bf8c99",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -13,6 +174,52 @@
       "writtenOn": "2020-06-24T00:27:58Z",
       "side": 1,
       "message": "Don\u0027t call __android_log_print directly",
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "668ee07b_a1d7bf94",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "See note above about returning 0 for success.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 10
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d415ae19_6e51a3fb",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T05:57:41Z",
+      "side": 1,
+      "message": "sizeof(0[entries]) is backwards isn\u0027t it? Shouldn\u0027t it be sizeof(entries[0]) ?\n\nnit: spaces between \u003d, \u003c, /\n\nAlso consider defining the sizeof(struct)/sizeof(struct[0]) as a something like the ARRAY_SIZE macro.",
+      "range": {
+        "startLine": 301,
+        "startChar": 5,
+        "endLine": 301,
+        "endChar": 45
+      },
       "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
