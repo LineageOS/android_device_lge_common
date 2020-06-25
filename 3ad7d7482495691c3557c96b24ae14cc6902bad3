@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "c2eaf7b5_3fe107ae",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:28:51Z",
+      "side": 1,
+      "message": "partition",
+      "range": {
+        "startLine": 22,
+        "startChar": 32,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3773270_d11b6ef8",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2020-06-25T04:28:51Z",
+      "side": 1,
+      "message": "nit: You could name these more descriptively.",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "3ad7d7482495691c3557c96b24ae14cc6902bad3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "061639a8_9b4df408",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 2
