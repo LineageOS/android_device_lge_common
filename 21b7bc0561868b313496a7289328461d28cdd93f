@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1e1d10c_d6a0900e",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:12:41Z",
+      "side": 1,
+      "message": "That would also work.  Since I\u0027m expecting HWADDRS_OFFSET_WIFI to normally be undefined, \"ifdef\" works fine.",
+      "parentUuid": "8ece3de4_a3a9d241",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38d098bb_ac0994e9",
         "filename": "hwaddrs/Android.mk",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-25T06:21:16Z",
       "side": 1,
       "message": "Can\u0027t this just be done using the standard:\n\nifeq ($(VAL),)\nLOCAL_CFLAGS +\u003d -DFLAG\u003d$VAL\nendif\n\nconstruction? This seems overly complicated. I would also argue that readable code outweighs most other considerations here.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 37
+      },
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6e84cd_cffa4672",
+        "filename": "hwaddrs/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:12:41Z",
+      "side": 1,
+      "message": "My expectation is $(HWADDRS_OFFSET_MIN), $(HWADDRS_OFFSET_MAX), and $(HWADDRS_OFFSET_MASK) will normally be left unset.  As they need to be set I used the simplest construction to generate them I could.\n\nSimply $(HWADDRS_OFFSET_MIN) is the minimum offset `hwaddrs.readmisc` will allow access to, $(HWADDRS_OFFSET_MAX) is the maximum offset `hwaddrs.readmisc` will allow access to.  In the case of the sample values of 0x3000 and 0x4000, HWADDRS_OFFSET_MIN\u003d0x3000 and HWADDRS_OFFSET_MAX\u003d0x4000.\n\nThis is simply finding smallest and largest values.\n\nI was trying for `awk`, but strtonum() is GNU awk-specific and `gawk` is NOT a prerequisite for building LineageOS (while not using strtonum() would be a PITA).  Python is likely usable, though troublesome for on command-line scripts.  Perl came up with a candidate.\n\nMy concern is how much longer Perl will remain a commonly installed utility.  Right now LineageOS\u0027s prerequisites pull in \"perl-base\" which is adequate for this task.",
+      "parentUuid": "38d098bb_ac0994e9",
       "range": {
         "startLine": 56,
         "startChar": 0,
@@ -101,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "7c98662c_9f2d237a",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:12:41Z",
+      "side": 1,
+      "message": "It is exactly a standard stringification.  HWADDR_MAC_PREFIX_STR becomes the string.",
+      "parentUuid": "d337a203_221542f3",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00b611de_84abdfc8",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 9
@@ -151,6 +217,41 @@
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9252139_365f9e5e",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:12:41Z",
+      "side": 1,
+      "message": "Yeah, not really entirely sure what to do here.",
+      "parentUuid": "2e64beea_2f085a9b",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d613c574_16f14e15",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:12:41Z",
+      "side": 1,
+      "message": "For reference, THIS is one of the end points.  0x3000 and 0x4000 are correct for some devices, but in earlier ones they amounted to placeholders since they didn\u0027t work for ALL devices.",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
