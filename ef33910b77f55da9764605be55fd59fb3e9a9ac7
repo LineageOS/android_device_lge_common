@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "05e3353d_27fc7a8d",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:02:22Z",
+      "side": 1,
+      "message": "Does work.  Long-ish while since I\u0027d last fought this and been looking up documentation.  Then there is the issue of some macros/wrappers being available in some places, but not others.  Seems at time like a train wreck.  I\u0027ll switch to ALOG*(), though I\u0027m presently fighting things.",
+      "parentUuid": "8b62abbe_45388640",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75bdf857_67e3bb40",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2020-06-24T00:15:08Z",
       "side": 1,
       "message": "This is awful code style. See previous change for comment about clang-format.",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8795acf9_6c3d38e7",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:02:22Z",
+      "side": 1,
+      "message": "In the style you prefer.  In my evaluation, continuing lines at the start seems to work better.  If you indent them two indents you\u0027ve chopped off most of your columns making it quite likely a wrapped line will continue onto multiple lines.  Half indentations make them blend in.  As such I\u0027ve found continuing at column 1 pretty workable.",
+      "parentUuid": "75bdf857_67e3bb40",
       "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
@@ -100,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "25720d6f_9098b5e6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:02:22Z",
+      "side": 1,
+      "message": "One can have that as a style rule.",
+      "parentUuid": "6e2908cd_f9e97efa",
+      "range": {
+        "startLine": 74,
+        "startChar": 3,
+        "endLine": 75,
+        "endChar": 70
+      },
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57eb2000_e872ab84",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -134,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "703e9bb9_c0427e32",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:02:22Z",
+      "side": 1,
+      "message": "I think you\u0027ve inverted the effects of the umask.  Though if you really want, \"umask(0);\" would work since this program always uses restricted modes, rather than default modes.  Alternatively the numeric 0222 also works.",
+      "parentUuid": "7a160a4f_80dfd0cf",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60879d70_511f461f",
         "filename": "sepolicy/hwaddrs.te",
         "patchSetId": 3
@@ -145,6 +223,30 @@
       "writtenOn": "2020-06-25T04:38:16Z",
       "side": 1,
       "message": "Shouldn\u0027t these just be rw_dir_perms; ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 71
+      },
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca6cfbe4_b96e5a8b",
+        "filename": "sepolicy/hwaddrs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:02:22Z",
+      "side": 1,
+      "message": "Could in fact be w_dir_perms, though that adds open and lock capabilities.  The olde balancing act between readability and trying for the absolute minimum permissions, plus this was evolving by testing and seeing what showed in audits.  I\u0027ll change this in the next revision.",
+      "parentUuid": "60879d70_511f461f",
       "range": {
         "startLine": 13,
         "startChar": 33,
