@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "55543350_a9f1704b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:56:15Z",
+      "side": 1,
+      "message": "For system calls 0 is often success, while negative is failure.  For processes 0 is success, while non-zero is failure.  For internal functions often 0 is failure while positive is success.  The reason being C considers 0 to be false, while 1 is true.",
+      "parentUuid": "15622d7d_e59e388f",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6dbb6b3b_60ea3f1c",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -117,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "6d3a8a93_249a9f19",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:56:15Z",
+      "side": 1,
+      "message": "Certainly a nit, but one worthy of getting stomped on.  Since this is sizeof() a buffer on the stack it is near-certain an unsigned long is enough.",
+      "parentUuid": "89db64a9_2128ef5b",
+      "range": {
+        "startLine": 68,
+        "startChar": 57,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7f51c1e_46a89e66",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -140,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "9277405c_d88c4fa2",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:56:15Z",
+      "side": 1,
+      "message": "Ah, so close to a rather fundamental problem and truly problematic, yet not hit.  \"corrupt\" is for the file has been corrupted and needs to be nuked, while in this case an internal error has been hit and recovery may not be possible.",
+      "parentUuid": "c7f51c1e_46a89e66",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 12
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f815c58_18823e12",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -151,6 +223,30 @@
       "writtenOn": "2020-06-25T05:57:41Z",
       "side": 1,
       "message": "Why check isspace(charbuf[17]) versus checking what you expect the last character to be (presumably a null terminator)?",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38037bee_f79e0bcb",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:56:15Z",
+      "side": 1,
+      "message": "Likely should instead check for \u0027\\n\u0027 since newline is actually what is expected.  I was unsure whether other types of spaces were legal or not.",
+      "parentUuid": "1f815c58_18823e12",
       "range": {
         "startLine": 80,
         "startChar": 5,
@@ -214,6 +310,30 @@
       "writtenOn": "2020-06-25T05:57:41Z",
       "side": 1,
       "message": "sizeof(0[entries]) is backwards isn\u0027t it? Shouldn\u0027t it be sizeof(entries[0]) ?\n\nnit: spaces between \u003d, \u003c, /\n\nAlso consider defining the sizeof(struct)/sizeof(struct[0]) as a something like the ARRAY_SIZE macro.",
+      "range": {
+        "startLine": 301,
+        "startChar": 5,
+        "endLine": 301,
+        "endChar": 45
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16085b50_e7d5c457",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T04:56:15Z",
+      "side": 1,
+      "message": "This is exactly how ARRAY_SIZE macros are defined.  `clang` though doesn\u0027t automatically pull in an ARRAY_SIZE macro, so it is faster for someone with skill to pull the definition from memory than hunt for a handy header.\n\nDespite not intuitively seeming that way, the [] operator is commutative.  The expression a[b] is simply syntactic sugar for the expression *(a+b).",
+      "parentUuid": "d415ae19_6e51a3fb",
       "range": {
         "startLine": 301,
         "startChar": 5,
