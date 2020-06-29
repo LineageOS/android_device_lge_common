@@ -22,6 +22,30 @@
       "revId": "f3b993475c507acabc8215d08f93e829b3d49b5a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56fc5e5_3cd28efd",
+        "filename": "hwaddrs/sepolicy/hwaddrs.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T06:47:46Z",
+      "side": 1,
+      "message": "My knowledge of SE Linux isn\u0027t particularly strong.  What I\u0027ve read in selinux.h and the SE Policy files recommends use of exec*() for crossing domain boundaries.  Since the access to the files is in \"hwaddrs2\" while access to misc is in a few predefined domains, I\u0027m opting for the recommended strategy.",
+      "parentUuid": "58d14ebe_cc7b2fa5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 63
+      },
+      "revId": "f3b993475c507acabc8215d08f93e829b3d49b5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
