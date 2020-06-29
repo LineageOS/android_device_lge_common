@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "9b4d414b_661b0705",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T03:18:06Z",
+      "side": 1,
+      "message": "\u003e A return code of 0 means error? That seems backwards to me.\n\nThis is C internals, not process return.  0 is conventional as a false value (so is negative).",
+      "parentUuid": "0144e168_a069b723",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "89a6b2ed98412ce6b4d5b7e907af2e609a826673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1888a916_ac23db69",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
