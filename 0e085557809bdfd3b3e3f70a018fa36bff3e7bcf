@@ -34,6 +34,24 @@
       "revId": "0e085557809bdfd3b3e3f70a018fa36bff3e7bcf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7cc4dd_3d3a92db",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-06-29T05:02:32Z",
+      "side": 1,
+      "message": "Uh, you prefer the line to be \"switch((checkAddr(entry-\u003edatamiscname, entry-\u003eprefix, S_IRUSR|S_IRGRP|S_IROTH)?0b10:0)|(checkAddr(entry-\u003epersistname, entry-\u003eprefix, 0)?0b01:0)) {\"\n\nMore notably this is a situation which has been lurking in the background and hasn\u0027t been addressed.",
+      "parentUuid": "e21082ab_96387b65",
+      "revId": "0e085557809bdfd3b3e3f70a018fa36bff3e7bcf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
