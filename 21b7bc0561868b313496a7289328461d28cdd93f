@@ -287,6 +287,24 @@
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc09cda_c43432cf",
+        "filename": "hwaddrs/readmisc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T03:05:48Z",
+      "side": 1,
+      "message": "Resolved by taking care of this during the build process.  At that point the values are known, so an appropriate value can be computed.",
+      "parentUuid": "9fd8d500_1847bd06",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
