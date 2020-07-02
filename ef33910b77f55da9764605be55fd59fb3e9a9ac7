@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ff823850_0e7049c6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e3353d_27fc7a8d",
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75bdf857_67e3bb40",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -256,6 +274,30 @@
       "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b89fe1dd_7a88c113",
+        "filename": "sepolicy/hwaddrs.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:12:50Z",
+      "side": 1,
+      "message": "Hopefully the latest version satisfies you.  open and lock are never used, but hopefully you find w_dir_perms more readable.",
+      "parentUuid": "ca6cfbe4_b96e5a8b",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 71
+      },
+      "revId": "ef33910b77f55da9764605be55fd59fb3e9a9ac7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
