@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "1570b2fe_bd222fdf",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:50:51Z",
+      "side": 1,
+      "message": "Hopefully moving the earlier commit closer to its origins makes the history more obvious.  Originally I was thinking the exact history wasn\u0027t worth preserving, but I guess it is needed.",
+      "parentUuid": "32998b55_94403b8c",
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d81eb53a_e35b9071",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -53,6 +71,30 @@
       "writtenOn": "2020-06-24T15:31:44Z",
       "side": 1,
       "message": "this whole code block is unused.",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 6
+      },
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99dc0647_95e1b832",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:50:51Z",
+      "side": 1,
+      "message": "Same comment.  Telling stories inside version control is an imperfect art.",
+      "parentUuid": "d81eb53a_e35b9071",
       "range": {
         "startLine": 150,
         "startChar": 1,
