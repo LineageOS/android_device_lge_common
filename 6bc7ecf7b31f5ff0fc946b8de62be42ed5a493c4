@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "680705a7_2d469e69",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "792e45ca_600c4161",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ac785d3_9d6c1d7b",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -105,6 +123,24 @@
       "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c161a1_f36d061b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d5842ff_0c71f78a",
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +187,54 @@
       "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d5e252a_b2977cf6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:43:54Z",
+      "side": 1,
+      "message": "Strictly, is there a need for a string which isn\u0027t reused?",
+      "parentUuid": "aff40364_a86685fa",
+      "range": {
+        "startLine": 251,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 34
+      },
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86e1987_048f7425",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:43:54Z",
+      "side": 1,
+      "message": "Well, this IS how `hwaddrs` had been working on the various devices.  I imagine other devices have similar programs with similar embedded magic numbers.  In fact the biggest part of #272103 is making it possible to set these via macro.  At this point in the history this hadn\u0027t yet been ripped out.\n\nSince one of the end goals is to make this changeable, the next revision puts a hopefully obvious placeholder here.",
+      "parentUuid": "32a82994_fb750afb",
+      "range": {
+        "startLine": 251,
+        "startChar": 58,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "6bc7ecf7b31f5ff0fc946b8de62be42ed5a493c4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
