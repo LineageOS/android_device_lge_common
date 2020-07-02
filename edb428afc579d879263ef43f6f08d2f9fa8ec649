@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "1fff7567_a834470a",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:38:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a269800_7880ce60",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89db64a9_2128ef5b",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -162,6 +186,30 @@
       "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41aa4593_6577207b",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:38:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d3a8a93_249a9f19",
+      "range": {
+        "startLine": 68,
+        "startChar": 57,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -273,6 +321,24 @@
       "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb5b0c1a_c68ab1cf",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-02T02:38:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64a9bc8a_32bf8c99",
+      "revId": "edb428afc579d879263ef43f6f08d2f9fa8ec649",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
