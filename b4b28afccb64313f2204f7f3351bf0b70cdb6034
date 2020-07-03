@@ -93,6 +93,30 @@
       "revId": "b4b28afccb64313f2204f7f3351bf0b70cdb6034",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2af915_1530ac68",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-07-03T09:46:56Z",
+      "side": 1,
+      "message": "#define MAC_LEN 17\n#define MAX_READ_CHARS (MAC_LEN + 1)\nif (read(checkfd, charbuf, sizeof(charbuf)) !\u003d MAX_READ_CHARS)\nand\nif (charbuf[MAC_LEN] !\u003d \u0027\\n\u0027) or whatever character you expect there\n\nwould be the suggested way of NOT handling with magic numbers in code",
+      "parentUuid": "15f3d2a2_12513ff0",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 65,
+        "endChar": 25
+      },
+      "revId": "b4b28afccb64313f2204f7f3351bf0b70cdb6034",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
