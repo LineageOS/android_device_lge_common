@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c5c527e_7a6935dd",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-07-03T09:37:38Z",
+      "side": 1,
+      "message": "doesn\u0027t seem to be an appropriate comment",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 51
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd979398_2596e374",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-07-03T09:37:38Z",
+      "side": 1,
+      "message": "spaces aroundd operators",
+      "range": {
+        "startLine": 219,
+        "startChar": 63,
+        "endLine": 219,
+        "endChar": 65
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aeaf928_286b733d",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-07-03T09:37:38Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 225,
+        "startChar": 46,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57020ba8_89d53ad8",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2020-07-03T09:37:38Z",
+      "side": 1,
+      "message": "if needs its own space...",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
