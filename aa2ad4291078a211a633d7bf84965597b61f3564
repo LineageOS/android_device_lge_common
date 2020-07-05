@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed68ee34_22c92856",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-05T01:12:35Z",
+      "side": 1,
+      "message": "I\u0027ll welcome suggestions for better comments.\n\nI\u0027m trying to point to this odd construct is working with the C preprocessor.",
+      "parentUuid": "9c5c527e_7a6935dd",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 51
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd979398_2596e374",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-03T09:37:38Z",
       "side": 1,
       "message": "spaces aroundd operators",
+      "range": {
+        "startLine": 219,
+        "startChar": 63,
+        "endLine": 219,
+        "endChar": 65
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bff67eed_97521c67",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-05T01:12:35Z",
+      "side": 1,
+      "message": "That is one style, this is a distinct style.\n\nWhen testing I found my development environment fit twice as many characters on screen at once as does Gerrit.  I also found it to be rather more readable than Gerrit.  I attribute that to a font where readability is a higher priority than being pretty.\n\nSeemed consistency was of greatest concern, so I ran through and ensured everything had the same style.",
+      "parentUuid": "bd979398_2596e374",
       "range": {
         "startLine": 219,
         "startChar": 63,
@@ -87,6 +135,54 @@
         "startChar": 2,
         "endLine": 225,
         "endChar": 5
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed76bc43_fd235c8b",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-05T01:12:35Z",
+      "side": 1,
+      "message": "Different style.",
+      "parentUuid": "57020ba8_89d53ad8",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea63febc_38b74980",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-05T01:12:35Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "7aeaf928_286b733d",
+      "range": {
+        "startLine": 225,
+        "startChar": 46,
+        "endLine": 225,
+        "endChar": 49
       },
       "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
