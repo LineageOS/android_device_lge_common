@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "a668bf42_b542d515",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:46:17Z",
+      "side": 1,
+      "message": "Hopefully moving closer to the original history has made the situation clearer.  I\u0027m unsure whether this comment is adequately addressed, but things are sufficiently different at the head for comment adjustment to be needed.",
+      "parentUuid": "1570b2fe_bd222fdf",
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d81eb53a_e35b9071",
         "filename": "hwaddrs/getmac.c",
         "patchSetId": 3
@@ -104,6 +122,30 @@
       "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "888ab7aa_41de9ee6",
+        "filename": "hwaddrs/getmac.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:46:17Z",
+      "side": 1,
+      "message": "Same as above.  Hopefully the adjustment makes things clearer.",
+      "parentUuid": "99dc0647_95e1b832",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 6
+      },
+      "revId": "9161d4c60bd053c03b7810a359dcf2cef30eb999",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
