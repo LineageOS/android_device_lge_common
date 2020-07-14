@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "962c6dae_aece5535",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "Hopefully the updated comment is more towards your liking?  I cringe every time I have to bring build-time values in from outside.  Getting the C preprocessor expansion right is...",
+      "parentUuid": "ed68ee34_22c92856",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 51
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd979398_2596e374",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 10
@@ -93,6 +117,30 @@
       "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72d8e45_7e010823",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "This ended up getting nuked due to adjustments elsewhere.",
+      "parentUuid": "bff67eed_97521c67",
+      "range": {
+        "startLine": 219,
+        "startChar": 63,
+        "endLine": 219,
+        "endChar": 65
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -187,6 +235,54 @@
       "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5296d2e5_9c12640a",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "Nuked.",
+      "parentUuid": "ed76bc43_fd235c8b",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19404cbd_bc74fa28",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "Nuked.",
+      "parentUuid": "ea63febc_38b74980",
+      "range": {
+        "startLine": 225,
+        "startChar": 46,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "aa2ad4291078a211a633d7bf84965597b61f3564",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

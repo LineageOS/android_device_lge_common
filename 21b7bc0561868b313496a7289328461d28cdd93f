@@ -167,6 +167,24 @@
     },
     {
       "key": {
+        "uuid": "fb0a5d8c_019e904b",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "Hopefully the updated comment is more towards your liking?  I cringe every time I have to bring build-time values in from outside.  Getting the C preprocessor expansion right is...",
+      "parentUuid": "7c98662c_9f2d237a",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00b611de_84abdfc8",
         "filename": "hwaddrs/handlemac.c",
         "patchSetId": 9
@@ -235,6 +253,24 @@
       "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ad1ddaf_efba25c5",
+        "filename": "hwaddrs/handlemac.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 18177
+      },
+      "writtenOn": "2020-07-14T03:24:56Z",
+      "side": 1,
+      "message": "Updates ended up nuking this section so I believe this can be marked resolved.",
+      "parentUuid": "e9252139_365f9e5e",
+      "revId": "21b7bc0561868b313496a7289328461d28cdd93f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
